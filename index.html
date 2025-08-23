@@ -9,14 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* DESIGNER'S NOTE (v4 - Executive Polish):
-            Philosophy: True luxury is confidence, not ornamentation. The design is now cleaner, the language more direct and authoritative. We're speaking peer-to-peer, from one expert to another.
-
-            Layout & Spacing: Increased whitespace across all sections. This creates a calm, unhurried reading experience, conveying respect for the viewer's time and intelligence.
-
-            Hero Refinement: The UI mockup is simplified. The glowing badge is gone, replaced with a confident, static recommendation. The 3D effect is subtler. This isn't a tech demo; it's a glimpse into a tool of power.
-
-            Copywriting: The language is elevated. "Инструмент" becomes "система управления". "Преимущества" become "результаты". The tone is that of a private wealth advisor, not a startup. It's direct, assured, and focused on capital.
+        /* DESIGNER'S NOTE (v6 - Strategic Curation):
+            Added a new section to visually demonstrate the AI's curation capability. This bridges the gap between the "what" (our platform) and the "how" (how it grows your capital). The UI mockup is clean and focuses on a single, powerful action: finding the perfect piece to enhance a collection's value. This reinforces the message of strategic, data-driven acquisition over simple purchasing.
         */
         @keyframes fade-in-up {
             from { opacity: 0; transform: translateY(20px); }
@@ -40,7 +34,7 @@
             letter-spacing: 0.025em;
         }
         .accent-color {
-            color: #B54929;
+            color: #C0A062;
         }
         .gold-accent-text {
             color: #C0A062;
@@ -48,12 +42,14 @@
         .hero-section {
             background: #141414;
         }
-        .hero-ui-mockup {
+        .hero-ui-mockup, .curation-mockup {
             background: linear-gradient(145deg, #1A1A1A, #161616);
             border: 1px solid #333;
+            box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
+        }
+        .hero-ui-mockup {
             animation: slide-in-right 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             transform-style: preserve-3d;
-            box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
         }
         .hero-ui-mockup .ai-insight-card {
             background: rgba(192, 160, 98, 0.05);
@@ -132,7 +128,6 @@
                     
                     <!-- Simplified Chart -->
                     <div class="mt-8 w-full h-20">
-                        <!-- Placeholder for a clean, elegant SVG chart line -->
                         <svg width="100%" height="100%" viewBox="0 0 300 80" preserveAspectRatio="none"><path d="M0 50 Q 50 20, 100 40 T 200 60 T 300 30" stroke="#52525b" fill="none" stroke-width="2"/></svg>
                     </div>
 
@@ -180,7 +175,6 @@
                 <h2 class="text-4xl md:text-5xl leading-tight">Ваш финансовый пульт</h2>
             </div>
             <div class="dashboard-mockup rounded-2xl p-4 md:p-8 max-w-6xl mx-auto">
-                <!-- Content remains largely the same, presentation is key -->
                 <div class="flex items-center justify-between border-b border-gray-700 pb-4 mb-6 px-2">
                     <div>
                         <p class="text-sm text-gray-400">Общая стоимость портфеля</p>
@@ -199,7 +193,7 @@
                     <div class="lg:col-span-2 bg-gradient-to-br from-[#2a2a2a]/40 to-[#2a2a2a]/10 p-4 rounded-lg">
                         <p class="text-sm text-gray-400 mb-2">Динамика стоимости</p>
                         <div class="w-full bg-gray-800/50 rounded-lg p-2 h-32 flex items-end space-x-2">
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 50%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 65%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 60%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 75%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 85%;"></div><div class="bg-gradient-to-t from-[#B54929] to-[#d46a4a] w-1/6 rounded-t-sm" style="height: 90%;"></div>
+                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 50%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 65%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 60%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 75%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 85%;"></div><div class="bg-gradient-to-t from-[#C0A062] to-[#d9b97c] w-1/6 rounded-t-sm" style="height: 90%;"></div>
                         </div>
                         <div class="mt-6 border-t border-gray-700 pt-4">
                             <p class="font-mono text-sm gold-accent-text">[ AI Анализ ]</p>
@@ -211,13 +205,68 @@
         </div>
     </section>
 
-    <!-- PRINCIPLES: The "How" -->
+    <!-- The Disruption -->
     <section class="py-28 md:py-48">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <p class="font-mono uppercase tracking-widest text-sm mb-6 gold-accent-text">[ Новая парадигма ]</p>
+                <h2 class="text-4xl md:text-5xl leading-tight mb-8">Рынок искусства — последний бастион.</h2>
+                <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                    Christie's и Sotheby's — это старые банки до появления финтеха. Рынок искусства — последний финансовый рубеж, не тронутый технологической революцией. Мы — тот самый Revolut в мире антиквариата и искусства.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Curation -->
+    <section class="py-28 md:py-48 bg-[#141414] text-white">
         <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+                <!-- Left Side: The Visual Demonstration -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="curation-mockup rounded-2xl p-6 w-full max-w-md text-white">
+                        <div class="border-b border-gray-700 pb-4">
+                            <p class="font-mono text-xs text-gray-400">АНАЛИЗ КОЛЛЕКЦИИ</p>
+                            <p class="text-xl font-medium mt-1">Русский авангард, 1910-1920</p>
+                        </div>
+                        <div class="mt-6">
+                            <p class="font-mono text-sm gold-accent-text">[ AI ПОДБОР ]</p>
+                            <p class="text-gray-300 mt-2">Найдена синергия с работой из частной коллекции в Цюрихе.</p>
+                        </div>
+                        <div class="mt-6 bg-black/20 p-4 rounded-lg">
+                             <p class="text-lg font-medium">"Супрематизм" (1916)</p>
+                             <p class="text-sm text-gray-400">К. Малевич</p>
+                             <div class="mt-4 border-t border-gray-700/50 pt-3">
+                                <p class="text-xs text-gray-400">ОБОСНОВАНИЕ</p>
+                                <p class="text-sm text-white mt-1">Идеально дополнит ядро коллекции, потенциал роста +25%.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Side: The Explanation -->
+                <div class="text-center lg:text-left">
+                     <p class="font-mono uppercase tracking-widest text-sm mb-4 gold-accent-text">[ Стратегия ]</p>
+                    <h2 class="text-4xl md:text-5xl leading-tight">Больше, чем просто покупка.</h2>
+                    <p class="mt-6 text-xl text-gray-400 leading-relaxed">
+                        Наша система анализирует вашу коллекцию, находит "белые пятна" и ищет на мировом рынке лоты, которые не просто вам понравятся, а стратегически усилят стоимость всего вашего портфеля. Это инвестиционный подход к искусству.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINCIPLES: The "How" -->
+    <section class="py-28 md:py-48 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-24">
+                 <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Принципы ]</p>
+                <h2 class="text-4xl md:text-5xl leading-tight">Наши обязательства</h2>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-1 manifesto-grid">
-                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 01 ]</p><h3 class="text-3xl mb-4">Полная Конфиденциальность</h3><p class="text-gray-600 leading-relaxed">Ваши данные и активы защищены на уровне швейцарского банка. Мы работаем в закрытой экосистеме, гарантируя абсолютную приватность.</p></div>
-                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 02 ]</p><h3 class="text-3xl mb-4">Прозрачность Данных</h3><p class="text-gray-600 leading-relaxed">Вы получаете доступ к полной аналитике: провенанс, история продаж, рыночные тренды. Никаких "черных ящиков". Только факты для принятия решений.</p></div>
-                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 03 ]</p><h3 class="text-3xl mb-4">Закрытый Клуб</h3><p class="text-gray-600 leading-relaxed">Членство в Heritage Ledger — только по приглашениям. Мы создали сообщество равных, где репутация и экспертиза являются главным капиталом.</p></div>
+                <!-- UPDATED with responsive font size -->
+                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 01 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Полная Конфиденциальность</h3><p class="text-gray-600 leading-relaxed">Ваши данные и активы защищены на уровне швейцарского банка. Мы работаем в закрытой экосистеме, гарантируя абсолютную приватность.</p></div>
+                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 02 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Прозрачность Данных</h3><p class="text-gray-600 leading-relaxed">Вы получаете доступ к полной аналитике: провенанс, история продаж, рыночные тренды. Никаких "черных ящиков". Только факты для принятия решений.</p></div>
+                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 03 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Закрытый Клуб</h3><p class="text-gray-600 leading-relaxed">Членство в Heritage Ledger — только по приглашениям. Мы создали сообщество равных, где репутация и экспертиза являются главным капиталом.</p></div>
             </div>
         </div>
     </section>
@@ -260,4 +309,3 @@
 
 </body>
 </html>
-
