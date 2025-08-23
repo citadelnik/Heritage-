@@ -7,156 +7,203 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* DESIGNER'S NOTE:
-            Palette: Inspired by archival paper, red chalk, and gallery shadows.
-            - Background (#FBFBFB): A subtle off-white, not the harsh #FFFFFF of standard websites. It's softer on the eyes, more organic.
-            - Text (#141414): A deep charcoal, not pure black. Less fatiguing, more sophisticated.
-            - Accent (#B54929): "Sanguine" or "Red Chalk". A historic color used by Old Masters for sketches. It connects our digital product to the very origins of art.
+        /* DESIGNER'S NOTE (v4 - Executive Polish):
+            Philosophy: True luxury is confidence, not ornamentation. The design is now cleaner, the language more direct and authoritative. We're speaking peer-to-peer, from one expert to another.
 
-            Typography: A dialogue between the classical and the modern.
-            - Lora: A serif font for headings. It has calligraphic roots, conveying elegance and history.
-            - IBM Plex Mono: A monospaced font for data and UI accents. It speaks of technology, precision, and data. The contrast is intentional.
+            Layout & Spacing: Increased whitespace across all sections. This creates a calm, unhurried reading experience, conveying respect for the viewer's time and intelligence.
+
+            Hero Refinement: The UI mockup is simplified. The glowing badge is gone, replaced with a confident, static recommendation. The 3D effect is subtler. This isn't a tech demo; it's a glimpse into a tool of power.
+
+            Copywriting: The language is elevated. "Инструмент" becomes "система управления". "Преимущества" become "результаты". The tone is that of a private wealth advisor, not a startup. It's direct, assured, and focused on capital.
         */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in-right {
+            from { opacity: 0; transform: translateX(50px) rotateY(-15deg); }
+            to { opacity: 1; transform: translateX(0) rotateY(0); }
+        }
+
         body {
             background-color: #FBFBFB;
             color: #141414;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'IBM+Plex+Mono', monospace;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         h1, h2, h3, h4 {
             font-family: 'Lora', serif;
             font-weight: 500;
+            letter-spacing: 0.025em;
         }
         .accent-color {
             color: #B54929;
         }
-        .bg-accent {
-            background-color: #B54929;
+        .gold-accent-text {
+            color: #C0A062;
         }
-        .hero-bg {
-            background-color: #141414;
-            background-image: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.9)), url('https://images.unsplash.com/photo-1512413223384-956384b8224b?q=80&w=2800&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center 30%;
+        .hero-section {
+            background: #141414;
+        }
+        .hero-ui-mockup {
+            background: linear-gradient(145deg, #1A1A1A, #161616);
+            border: 1px solid #333;
+            animation: slide-in-right 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform-style: preserve-3d;
+            box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
+        }
+        .hero-ui-mockup .ai-insight-card {
+            background: rgba(192, 160, 98, 0.05);
+            border: 1px solid rgba(192, 160, 98, 0.15);
         }
         .manifesto-grid > div {
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-color: #e5e7eb;
         }
         .manifesto-grid > div:hover {
             background-color: #141414;
             color: #FBFBFB;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border-color: #333;
         }
         .manifesto-grid > div:hover h3 {
-            color: #B54929;
+            color: #C0A062; /* Gold on hover */
         }
-        .dashboard-mockup {
-            background: #1C1C1C;
-            border: 1px solid #333;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.4);
+        .cta-button {
+            background: #141414;
+            color: #FBFBFB;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .cta-button:hover {
+            background: #C0A062; /* Gold hover */
+            color: #141414;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(192 160 98 / 0.2), 0 4px 6px -4px rgb(192 160 98 / 0.2);
         }
         ::selection {
-            background-color: #B54929;
-            color: #FBFBFB;
+            background-color: #C0A062;
+            color: #141414;
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- HERO: The Opening Statement -->
-    <section class="hero-bg min-h-screen flex flex-col justify-between p-6 md:p-10">
-        <header class="w-full flex justify-between items-center">
-            <h1 class="text-2xl text-[#FBFBFB]">Heritage Ledger</h1>
-            <a href="#contact" class="font-mono text-sm uppercase tracking-widest text-[#FBFBFB] border border-gray-500 rounded-full px-5 py-2 hover:bg-[#FBFBFB] hover:text-[#141414] transition-colors duration-300">
-                Запросить демонстрацию
+    <!-- HERO v4: The Executive Opening -->
+    <section class="hero-section min-h-screen flex flex-col">
+        <header class="w-full container mx-auto px-6 flex justify-between items-center z-10 pt-8 md:pt-12">
+            <h1 class="text-2xl text-[#FBFBFB] tracking-wide">Heritage Ledger</h1>
+            <a href="#contact" class="font-mono text-sm uppercase tracking-widest text-[#FBFBFB] border border-gray-600 rounded-full px-5 py-2 hover:bg-[#FBFBFB] hover:text-[#141414] transition-colors duration-300 hidden md:block">
+                Обсудить проект
             </a>
         </header>
         
-        <div class="container mx-auto px-6 text-center text-white flex-grow flex items-center justify-center">
-            <div class="max-w-4xl">
-                <h2 class="text-5xl md:text-7xl lg:text-8xl leading-tight">
-                    Ваша коллекция — спящий актив. <span class="accent-color">Мы его разбудим.</span>
-                </h2>
+        <div class="container mx-auto px-6 flex-grow grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+            <!-- Left Side: The Statement -->
+            <div class="text-white text-center lg:text-left py-10">
+                <div class="max-w-xl mx-auto lg:mx-0" style="animation: fade-in-up 1s ease-out forwards;">
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl leading-tight font-semibold">
+                        Ваша коллекция — <span class="accent-color">спящий актив.</span>
+                    </h2>
+                    <p class="mt-8 text-lg text-gray-400 max-w-lg">
+                        Аналитическая система для управления частными коллекциями. Превращаем искусство в ликвидный капитал.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side: The Demonstration -->
+            <div class="w-full h-full flex items-center justify-center" style="perspective: 2000px;">
+                <div class="hero-ui-mockup rounded-2xl p-6 w-full max-w-md lg:max-w-lg text-white" style="transform: rotateY(-10deg) rotateX(2deg);">
+                    <!-- Asset Card -->
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xl font-medium">"Пейзаж с рекой"</p>
+                            <p class="text-sm text-gray-400">И. Левитан, 1890</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-400">Оценка</p>
+                            <p class="text-xl font-medium">$485,000</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Simplified Chart -->
+                    <div class="mt-8 w-full h-20">
+                        <!-- Placeholder for a clean, elegant SVG chart line -->
+                        <svg width="100%" height="100%" viewBox="0 0 300 80" preserveAspectRatio="none"><path d="M0 50 Q 50 20, 100 40 T 200 60 T 300 30" stroke="#52525b" fill="none" stroke-width="2"/></svg>
+                    </div>
+
+                    <!-- AI Insight - More refined -->
+                    <div class="mt-8 ai-insight-card rounded-lg p-4">
+                        <p class="font-mono text-sm gold-accent-text">[ AI Прогноз ]</p>
+                        <div class="mt-3 flex items-baseline justify-between">
+                            <p class="text-gray-300">Потенциал роста (12 мес.):</p>
+                            <p class="text-2xl font-medium text-white">12-18%</p>
+                        </div>
+                        <div class="mt-3 flex items-baseline justify-between border-t border-gray-700/50 pt-3">
+                            <p class="text-gray-300">Рекомендация:</p>
+                            <p class="text-lg font-medium text-green-400">ДЕРЖАТЬ</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- MANIFESTO: The Philosophy -->
-    <section class="py-20 md:py-32">
+    <section class="py-28 md:py-48">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4">
-                    <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Манифест ]</p>
-                    <h2 class="text-4xl md:text-5xl leading-tight">Мы видим то, чего не видят другие.</h2>
+                    <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Философия ]</p>
+                    <h2 class="text-4xl md:text-5xl leading-tight">Видеть то, что скрыто от других.</h2>
                 </div>
-                <div class="md:col-span-8 text-xl md:text-2xl font-light leading-relaxed text-gray-700 space-y-6">
+                <div class="md:col-span-8 text-xl md:text-2xl font-light leading-relaxed text-gray-700 space-y-8">
                     <p>
-                        Искусство — это не просто холст или бронза. Это данные. Это история. Это капитал. Традиционный рынок, построенный на непрозрачности и интуиции, устарел.
+                        Искусство — это концентрированный капитал. История. И данные. Рынок, построенный на интуиции и закрытых сделках, больше не отвечает требованиям времени.
                     </p>
                     <p>
-                        Мы создали Heritage Ledger не как аукцион, а как <span class="bg-gray-200 px-1">инструмент</span>. Чтобы дать вам ясность там, где царит туман. Чтобы превратить вашу страсть в стратегию.
+                        Heritage Ledger — это не аукцион. Это ваша <span class="font-normal text-black border-b border-gray-300 pb-1">система управления</span> арт-капиталом. Мы даем ясность там, где царит туман. Мы превращаем страсть в выверенную стратегию.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- THE INSTRUMENT: The Core Value -->
-    <section class="py-20 md:py-32 bg-[#141414] text-[#FBFBFB]">
+    <section class="py-28 md:py-48 bg-[#141414] text-[#FBFBFB]">
         <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                 <p class="font-mono uppercase tracking-widest text-sm mb-4 text-gray-400">[ Инструмент ]</p>
-                <h2 class="text-4xl md:text-5xl leading-tight">Панель Управления Арт-Капиталом</h2>
+            <div class="text-center max-w-3xl mx-auto mb-24">
+                 <p class="font-mono uppercase tracking-widest text-sm mb-4 text-gray-400">[ Система ]</p>
+                <h2 class="text-4xl md:text-5xl leading-tight">Ваш финансовый пульт</h2>
             </div>
-
-            <!-- Dashboard Mockup -->
-            <div class="dashboard-mockup rounded-2xl p-4 md:p-6 max-w-6xl mx-auto">
+            <div class="dashboard-mockup rounded-2xl p-4 md:p-8 max-w-6xl mx-auto">
+                <!-- Content remains largely the same, presentation is key -->
                 <div class="flex items-center justify-between border-b border-gray-700 pb-4 mb-6 px-2">
                     <div>
-                        <p class="text-sm text-gray-400">Портфель</p>
-                        <p class="text-2xl font-medium">$3,120,400 <span class="text-green-400 text-base font-mono">+5.8%</span></p>
+                        <p class="text-sm text-gray-400">Общая стоимость портфеля</p>
+                        <p class="text-3xl font-medium">$3,120,400 <span class="text-green-400 text-lg font-mono">+5.8%</span></p>
                     </div>
                     <div class="font-mono text-sm uppercase tracking-widest text-gray-400">
                         HL / Q3 2025
                     </div>
                 </div>
-                
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Asset List -->
                     <div class="lg:col-span-1 space-y-3">
-                        <div class="bg-[#2a2a2a] p-3 rounded-lg border border-transparent">
-                            <p class="font-medium">"Пейзаж с рекой"</p>
-                            <p class="text-sm text-gray-400">И. Левитан</p>
-                            <p class="font-mono text-green-400 mt-1">+1.2%</p>
-                        </div>
-                        <div class="bg-[#2a2a2a]/50 p-3 rounded-lg border border-transparent">
-                            <p class="font-medium">"Ваза, династия Цин"</p>
-                            <p class="text-sm text-gray-400">Фарфор</p>
-                            <p class="font-mono text-green-400 mt-1">+0.8%</p>
-                        </div>
-                         <div class="bg-[#2a2a2a]/50 p-3 rounded-lg border border-transparent">
-                            <p class="font-medium">"Кресло, Ампир"</p>
-                            <p class="text-sm text-gray-400">Начало XIX в.</p>
-                            <p class="font-mono text-red-400 mt-1">-0.3%</p>
-                        </div>
+                        <div class="bg-[#2a2a2a] p-3 rounded-lg border border-gray-700/50 shadow-inner"><p class="font-medium">"Пейзаж с рекой"</p><p class="text-sm text-gray-400">И. Левитан</p><p class="font-mono text-green-400 mt-1">+1.2%</p></div>
+                        <div class="bg-[#2a2a2a]/50 p-3 rounded-lg"><p class="font-medium">"Ваза, династия Цин"</p><p class="text-sm text-gray-400">Фарфор</p><p class="font-mono text-green-400 mt-1">+0.8%</p></div>
+                        <div class="bg-[#2a2a2a]/50 p-3 rounded-lg"><p class="font-medium">"Кресло, Ампир"</p><p class="text-sm text-gray-400">Начало XIX в.</p><p class="font-mono text-red-400 mt-1">-0.3%</p></div>
                     </div>
-                    <!-- Chart & AI Insight -->
-                    <div class="lg:col-span-2 bg-[#2a2a2a]/30 p-4 rounded-lg">
-                        <p class="text-sm text-gray-400 mb-2">Динамика</p>
-                        <div class="w-full bg-gray-800 rounded-lg p-2 h-32 flex items-end space-x-2">
-                            <!-- Fake Chart -->
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 50%;"></div>
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 65%;"></div>
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 60%;"></div>
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 75%;"></div>
-                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 85%;"></div>
-                            <div class="bg-[#B54929] w-1/6 rounded-t-sm" style="height: 90%;"></div>
+                    <div class="lg:col-span-2 bg-gradient-to-br from-[#2a2a2a]/40 to-[#2a2a2a]/10 p-4 rounded-lg">
+                        <p class="text-sm text-gray-400 mb-2">Динамика стоимости</p>
+                        <div class="w-full bg-gray-800/50 rounded-lg p-2 h-32 flex items-end space-x-2">
+                            <div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 50%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 65%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 60%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 75%;"></div><div class="bg-gray-600 w-1/6 rounded-t-sm" style="height: 85%;"></div><div class="bg-gradient-to-t from-[#B54929] to-[#d46a4a] w-1/6 rounded-t-sm" style="height: 90%;"></div>
                         </div>
-                        <div class="mt-6">
-                            <p class="font-mono text-sm accent-color">[ AI Insight ]</p>
-                            <p class="mt-2 text-gray-300">Зафиксирован рост аукционного интереса к <span class="text-white">русскому пейзажу конца XIX в.</span> Потенциал роста актива "Пейзаж с рекой" в следующие 12 мес. — <span class="text-white">12-18%</span>. Рекомендация: <span class="text-white">ДЕРЖАТЬ</span>.</p>
+                        <div class="mt-6 border-t border-gray-700 pt-4">
+                            <p class="font-mono text-sm gold-accent-text">[ AI Анализ ]</p>
+                            <p class="mt-2 text-gray-300">Зафиксирован рост аукционного интереса к <span class="text-white font-medium">русскому пейзажу конца XIX в.</span> Рекомендация: <span class="text-white font-medium">ДЕРЖАТЬ</span>.</p>
                         </div>
                     </div>
                 </div>
@@ -165,48 +212,52 @@
     </section>
 
     <!-- PRINCIPLES: The "How" -->
-    <section class="py-20 md:py-32">
+    <section class="py-28 md:py-48">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-1 manifesto-grid">
-                <div class="border border-gray-200 p-8 md:p-12">
-                    <p class="font-mono text-sm mb-8 accent-color">[ 01 ]</p>
-                    <h3 class="text-3xl mb-4">Радикальная Прозрачность</h3>
-                    <p class="text-gray-600 leading-relaxed">Никаких скрытых комиссий. Никаких "черных ящиков". Каждая цифра, каждый шаг процесса — ясны и понятны. Мы зарабатываем на подписке, а не на вашей неосведомленности.</p>
-                </div>
-                <div class="border border-gray-200 p-8 md:p-12">
-                    <p class="font-mono text-sm mb-8 accent-color">[ 02 ]</p>
-                    <h3 class="text-3xl mb-4">Аналитика как Искусство</h3>
-                    <p class="text-gray-600 leading-relaxed">Мы не просто показываем прошлые цены. Наши алгоритмы анализируют тысячи точек данных, чтобы дать прогноз. Мы превращаем сухую аналитику в ясное видение.</p>
-                </div>
-                <div class="border border-gray-200 p-8 md:p-12">
-                    <p class="font-mono text-sm mb-8 accent-color">[ 03 ]</p>
-                    <h3 class="text-3xl mb-4">Курируемое Сообщество</h3>
-                    <p class="text-gray-600 leading-relaxed">Это закрытый клуб. Доступ к маркетплейсу открыт только для верифицированных коллекционеров и дилеров. Мы ценим качество и экспертизу, а не количество.</p>
-                </div>
+                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 01 ]</p><h3 class="text-3xl mb-4">Полная Конфиденциальность</h3><p class="text-gray-600 leading-relaxed">Ваши данные и активы защищены на уровне швейцарского банка. Мы работаем в закрытой экосистеме, гарантируя абсолютную приватность.</p></div>
+                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 02 ]</p><h3 class="text-3xl mb-4">Прозрачность Данных</h3><p class="text-gray-600 leading-relaxed">Вы получаете доступ к полной аналитике: провенанс, история продаж, рыночные тренды. Никаких "черных ящиков". Только факты для принятия решений.</p></div>
+                <div class="border p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 03 ]</p><h3 class="text-3xl mb-4">Закрытый Клуб</h3><p class="text-gray-600 leading-relaxed">Членство в Heritage Ledger — только по приглашениям. Мы создали сообщество равных, где репутация и экспертиза являются главным капиталом.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS: Measurable Benefits -->
+    <section class="py-28 md:py-48 bg-[#141414] text-[#FBFBFB]">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-24">
+                <p class="font-mono uppercase tracking-widest text-sm mb-4 text-gray-400">[ Результаты ]</p>
+                <h2 class="text-4xl md:text-5xl leading-tight">Управление капиталом в цифрах</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-white">Рост Капитала</h3><p class="text-gray-400 leading-relaxed">Рост стоимости портфеля в среднем на <span class="text-white">15-20%</span> выше рыночных индексов в первые два года.</p></div>
+                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-white">Доступ к Off-Market</h3><p class="text-gray-400 leading-relaxed">Доступ к закрытым сделкам, составляющим до <span class="text-white">30%</span> нашего внутреннего маркетплейса.</p></div>
+                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-white">Эффективность</h3><p class="text-gray-400 leading-relaxed">Сокращение времени на due diligence до <span class="text-white">70%</span> благодаря AI-аналитике и верифицированному провенансу.</p></div>
             </div>
         </div>
     </section>
 
     <!-- INVITATION: The Call to Action -->
-    <section id="contact" class="py-20 md:py-32 bg-gray-100">
+    <section id="contact" class="py-28 md:py-48 bg-gray-100">
         <div class="container mx-auto px-6 text-center">
-            <div class="max-w-2xl mx-auto">
-                <h2 class="text-4xl md:text-5xl leading-tight mb-6">Станьте частью новой эпохи.</h2>
-                <p class="text-xl text-gray-700 mb-10">Рынок искусства изменится. С вами или без вас. Мы предлагаем вам быть в авангарде этих перемен.</p>
-                <a href="mailto:partner@heritageledger.com" class="inline-block bg-accent text-white font-mono uppercase tracking-widest text-lg px-12 py-4 rounded-full hover:bg-[#141414] transition-colors duration-300">
-                    Запросить демонстрацию
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl leading-tight mb-8">Новая эпоха управления капиталом.</h2>
+                <p class="text-xl text-gray-700 mb-12">Рынок искусства изменился. Мы предлагаем вам быть в авангарде этих перемен.</p>
+                <a href="mailto:partner@heritageledger.com" class="cta-button inline-block font-mono uppercase tracking-widest text-lg px-12 py-4 rounded-full">
+                    Обсудить проект
                 </a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER: The Final Word -->
-    <footer class="py-10 bg-[#141414] text-gray-500">
+    <footer class="py-12 bg-[#141414] text-gray-600">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm font-mono">
             <p>&copy; 2025 Heritage Ledger. Конфиденциально.</p>
-            <p class="mt-4 md:mt-0">A New Standard for Art Capital.</p>
+            <p class="mt-4 md:mt-0">The Art of Capital Management.</p>
         </div>
     </footer>
 
 </body>
 </html>
+
