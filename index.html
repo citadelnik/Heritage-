@@ -1,296 +1,350 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Ledger | Манифест</title>
+    <title>Campaign Blueprint: Архетипи та Звільнення від Залежності</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* DESIGNER'S NOTE (v9 - The Club Manifesto):
-            The narrative has been elevated from a service presentation to a club manifesto.
-            - New "Club" Section: A dedicated block now explains the core pillars of membership: Synergy, European Recognition, and Historical Mission. This appeals to legacy and status, not just ROI.
-            - Refined Copywriting: Language is now more exclusive. "Platform" becomes "ecosystem," "user" becomes "resident." The CTA is changed to "Apply for Membership."
-            - Structure: The "Principles" section now serves as the final reassurance *after* the value of the club has been established, solidifying trust right before the call to action.
-        */
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
-        @keyframes slide-in-right {
-            from { opacity: 0; transform: translateX(50px) rotateY(-15deg); }
-            to { opacity: 1; transform: translateX(0) rotateY(0); }
+        .bg-primary { background-color: #1E3A8A; }
+        .bg-secondary { background-color: #3B82F6; }
+        .bg-accent { background-color: #EC4899; }
+        .text-primary { color: #1E3A8A; }
+        .text-secondary { color: #3B82F6; }
+        .text-accent { color: #EC4899; }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 450px;
+        }
+        
+        .material-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border-left: 4px solid transparent;
+        }
+        .material-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #EC4899;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
         }
 
-        body {
-            background-color: #FBFBFB;
-            color: #141414;
-            font-family: 'IBM+Plex+Mono', monospace;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Lora', serif;
-            font-weight: 500;
-            letter-spacing: 0.025em;
-        }
-        .accent-color {
-            color: #C0A062;
-        }
-        .gold-accent-text {
-            color: #C0A062;
-        }
-        .hero-section {
-            background: #141414;
-        }
-        .hero-ui-mockup, .curation-mockup, .transformation-mockup {
-            background: linear-gradient(145deg, #1A1A1A, #161616);
-            border: 1px solid #333;
-            box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
-        }
-        .hero-ui-mockup {
-            animation: slide-in-right 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            transform-style: preserve-3d;
-        }
-        .hero-ui-mockup .ai-insight-card {
-            background: rgba(192, 160, 98, 0.05);
-            border: 1px solid rgba(192, 160, 98, 0.15);
-        }
-        .manifesto-grid > div {
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-color: #e5e7eb;
-        }
-        .manifesto-grid > div:hover {
-            background-color: #141414;
-            color: #FBFBFB;
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            border-color: #333;
-        }
-        .manifesto-grid > div:hover h3 {
-            color: #C0A062; /* Gold on hover */
-        }
-        .cta-button {
-            background: #141414;
-            color: #FBFBFB;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        }
-        .cta-button:hover {
-            background: #C0A062; /* Gold hover */
-            color: #141414;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgb(192 160 98 / 0.2), 0 4px 6px -4px rgb(192 160 98 / 0.2);
-        }
-        ::selection {
-            background-color: #C0A062;
-            color: #141414;
+        .archetype-tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #E2E8F0;
+            color: #475569;
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="antialiased">
 
-    <!-- 1. HERO: The Hook -->
-    <section class="hero-section min-h-screen flex flex-col">
-        <header class="w-full container mx-auto px-6 flex justify-between items-center z-10 pt-8 md:pt-12">
-            <h1 class="text-2xl text-[#FBFBFB] tracking-wide"><span class="accent-color">Heritage Ledger</span></h1>
-            <a href="#contact" class="font-mono text-sm uppercase tracking-widest text-[#FBFBFB] border border-gray-600 rounded-full px-5 py-2 hover:bg-[#FBFBFB] hover:text-[#141414] transition-colors duration-300 hidden md:block">
-                Подать заявку на членство
-            </a>
-        </header>
-        
-        <div class="container mx-auto px-6 flex-grow grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
-            <!-- Left Side: The Statement -->
-            <div class="text-white text-center lg:text-left py-10">
-                <div class="max-w-xl mx-auto lg:mx-0" style="animation: fade-in-up 1s ease-out forwards;">
-                    <h2 class="text-5xl md:text-6xl lg:text-7xl leading-tight font-semibold">
-                        Ваша коллекция — <span class="accent-color">спящий актив.</span>
-                    </h2>
-                    <p class="mt-8 text-lg text-gray-400 max-w-lg">
-                        Закрытая экосистема для управления значимыми коллекциями. Мы переводим язык искусства на язык капитала, статуса и престижа.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Right Side: The Demonstration -->
-            <div class="w-full h-full flex items-center justify-center" style="perspective: 2000px;">
-                <div class="hero-ui-mockup rounded-2xl p-6 w-full max-w-md lg:max-w-lg text-white" style="transform: rotateY(-10deg) rotateX(2deg);">
-                    <div class="flex justify-between items-start">
-                        <div><p class="text-xl font-medium">"Пейзаж с рекой"</p><p class="text-sm text-gray-400">И. Левитан, 1890</p></div>
-                        <div class="text-right"><p class="text-sm text-gray-400">Оценка</p><p class="text-xl font-medium">$485,000</p></div>
-                    </div>
-                    <div class="mt-8 w-full h-20"><svg width="100%" height="100%" viewBox="0 0 300 80" preserveAspectRatio="none"><path d="M0 50 Q 50 20, 100 40 T 200 60 T 300 30" stroke="#52525b" fill="none" stroke-width="2"/></svg></div>
-                    <div class="mt-8 ai-insight-card rounded-lg p-4">
-                        <p class="font-mono text-sm gold-accent-text">[ AI Прогноз ]</p>
-                        <div class="mt-3 flex items-baseline justify-between"><p class="text-gray-300">Потенциал роста (12 мес.):</p><p class="text-2xl font-medium text-white">12-18%</p></div>
-                        <div class="mt-3 flex items-baseline justify-between border-t border-gray-700/50 pt-3"><p class="text-gray-300">Рекомендация:</p><p class="text-lg font-medium text-green-400">ДЕРЖАТЬ</p></div>
-                    </div>
-                </div>
-            </div>
+    <header class="bg-primary text-white py-16 px-6 shadow-lg mb-12">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Маркетинговий План «Олімп Богинь»</h1>
+            <h2 class="text-2xl md:text-3xl font-light text-blue-200">Від самопізнання до звільнення від залежності</h2>
+            <p class="mt-6 text-lg max-w-3xl leading-relaxed">
+                Ми використовуємо концепцію «Внутрішнього Олімпу», щоб перетворити терапію залежності на захопливу подорож до власної суті. Ви — не просто жінка, ви — цілий всесвіт богинь.
+            </p>
         </div>
-    </section>
+    </header>
 
-    <!-- 2. The Disruption: Agitate the Problem -->
-    <section class="py-28 md:py-48">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-4xl mx-auto">
-                <p class="font-mono uppercase tracking-widest text-sm mb-6 gold-accent-text">[ Новая парадигма ]</p>
-                <h2 class="text-4xl md:text-5xl leading-tight mb-8">Рынок искусства — последний бастион.</h2>
-                <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                    Christie's и Sotheby's — это старые банки до появления финтеха. Рынок антиквариата и искусства — последний финансовый рубеж, не тронутый технологической революцией. Мы — тот самый "Revolut" в мире антиквариата и искусства.
-                </p>
+    <main class="max-w-6xl mx-auto px-6 pb-20">
+
+        <!-- Funnel Section -->
+        <section class="mb-20">
+            <div class="mb-8 text-center">
+                <h3 class="text-3xl font-bold text-primary mb-4">Шлях Клієнтки: Прогноз Воронки</h3>
+                <p class="text-lg max-w-2xl mx-auto">Візуалізація потоку трафіку від першого контакту до 10 лояльних клієнток на терапії.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- VISUAL SEPARATOR -->
-    <div class="py-16">
-        <div class="w-24 h-px bg-gray-200 mx-auto"></div>
-    </div>
-
-    <!-- 3. The Transformation: Introduce the Solution -->
-    <section class="py-28 md:py-48 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
-                <div class="text-center lg:text-left">
-                     <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Трансформация ]</p>
-                    <h2 class="text-4xl md:text-5xl leading-tight">От актива в сейфе к капиталу в работе.</h2>
-                    <p class="mt-6 text-xl text-gray-700 leading-relaxed">
-                        Загрузка коллекции на платформу — это первый шаг к раскрытию ее полной финансовой стоимости. Мы превращаем разрозненные предметы в единый, управляемый портфель, предоставляя вам аналитику и контроль уровня private banking.
-                    </p>
+            
+            <div class="material-card p-6 md:p-8">
+                <div class="chart-container">
+                    <canvas id="funnelChart"></canvas>
                 </div>
-                <div class="w-full flex items-center justify-center">
-                    <div class="transformation-mockup rounded-2xl p-6 w-full max-w-md text-white">
-                        <div class="border-b border-gray-700 pb-4"><p class="font-mono text-xs text-gray-400">ВАШ АКТИВ</p><p class="text-xl font-medium mt-1">"Портрет дамы"</p></div>
-                        <div class="mt-6"><p class="font-mono text-sm text-gray-400">[ СТАТУС "ДО": НЕОПРЕДЕЛЕН ]</p><p class="text-gray-300 mt-2">Рыночная стоимость и потенциал плохо понятны и неизвестны.</p></div>
-                        <div class="text-center text-4xl my-8 text-gray-600">↓</div>
-                        <div class="mt-4 bg-black/20 p-4 rounded-lg">
-                             <p class="font-mono text-sm gold-accent-text">[ "ПОСЛЕ": АКТИВ В РАБОТЕ ]</p>
-                             <div class="mt-4 border-t border-gray-700/50 pt-3"><p class="text-xs text-gray-400">ТЕКУЩАЯ ОЦЕНКА</p><p class="text-xl font-medium text-white mt-1">$1,200,000 <span class="text-green-400 text-base font-mono">+4.2%</span></p></div>
-                             <div class="mt-4 border-t border-gray-700/50 pt-3"><p class="text-xs text-gray-400">AI РЕКОМЕНДАЦИЯ</p><p class="text-sm text-white mt-1">Выставить на частные торги в Q4. Прогноз цены: <span class="text-green-400 text-base font-mono">$1,450,000</span></p></div>
-                        </div>
+            </div>
+        </section>
+
+        <!-- CJM Details -->
+        <section class="mb-20">
+            <div class="mb-8">
+                <h3 class="text-3xl font-bold text-primary mb-4">Точки Контакту та Контент-Стратегія</h3>
+                <p class="text-lg">Як ми використовуємо ваші тексти на кожному етапі шляху.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="material-card p-6 flex flex-col h-full border-secondary">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">1</span> Обізнаність</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-secondary mb-2">КАНАЛ: Instagram Reels / TikTok</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Ти — не одна жінка. Ти — цілий всесвіт."</p>
+                        <p class="mt-2 text-sm">Серія роликів про 7 богинь. Робимо акцент на роздвоєності (вранці "залізна леді", ввечері — "дівчисько на ручки").</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- 4. RESULTS: Provide Hard Proof -->
-    <section class="py-28 md:py-48 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-24">
-                <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Результаты ]</p>
-                <h2 class="text-4xl md:text-5xl leading-tight">Управление капиталом в цифрах</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-gray-900">Рост Капитала</h3><p class="text-gray-600 leading-relaxed">Рост стоимости портфеля в среднем на <span class="text-gray-900 font-medium">15-20%</span> выше рыночных индексов в первый год-два.</p></div>
-                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-gray-900">Доступ к Off-Market</h3><p class="text-gray-600 leading-relaxed">Доступ к закрытым сделкам, составляющим около <span class="text-gray-900 font-medium">30%</span> нашего внутреннего маркетплейса.</p></div>
-                <div class="text-center"><div class="mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto gold-accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div><h3 class="text-2xl mb-3 font-semibold text-gray-900">Эффективность</h3><p class="text-gray-600 leading-relaxed">Сокращение времени на due diligence до <span class="text-gray-900 font-medium">70%</span> благодаря AI-аналитике и верифицированному провенансу.</p></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 5. Strategic Curation: Deepen the Solution -->
-    <section class="py-28 md:py-48 bg-[#141414] text-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
-                <div class="w-full flex items-center justify-center lg:order-2">
-                    <div class="curation-mockup rounded-2xl p-6 w-full max-w-md text-white">
-                        <div class="border-b border-gray-700 pb-4"><p class="font-mono text-xs text-gray-400">АНАЛИЗ КОЛЛЕКЦИИ</p><p class="text-xl font-medium mt-1">Русский авангард, 1910-1920</p></div>
-                        <div class="mt-6"><p class="font-mono text-sm gold-accent-text">[ AI ПОДБОР ]</p><p class="text-gray-300 mt-2">Найдена синергия с работой из частной коллекции в Цюрихе.</p></div>
-                        <div class="mt-6 bg-black/20 p-4 rounded-lg">
-                             <p class="text-lg font-medium">"Супрематизм" (1916)</p><p class="text-sm text-gray-400">К. Малевич</p>
-                             <div class="mt-4 border-t border-gray-700/50 pt-3"><p class="text-xs text-gray-400">ОБОСНОВАНИЕ</p><p class="text-sm text-white mt-1">Идеально дополнит ядро коллекции, потенциал роста <span class="text-green-400 text-base font-mono">+25%.</span></p></div>
-                        </div>
+                <div class="material-card p-6 flex flex-col h-full border-secondary">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">2</span> Інтерес</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-secondary mb-2">КАНАЛ: Сайт / Біо профілю</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Хочете познайомитися зі своєю справжньою суттю?"</p>
+                        <p class="mt-2 text-sm">Інтерактивний тест. Жінка оцінює твердження від 0 до 3. Отримує миттєвий результат свого архетипу.</p>
                     </div>
                 </div>
-                <div class="text-center lg:text-left lg:order-1">
-                     <p class="font-mono uppercase tracking-widest text-sm mb-4 gold-accent-text">[ Стратегия ]</p>
-                    <h2 class="text-4xl md:text-5xl leading-tight">Больше, чем просто покупка.</h2>
-                    <p class="mt-6 text-xl text-gray-400 leading-relaxed">
-                        Наша система анализирует вашу коллекцию, находит "белые пятна" и ищет на мировом рынке лоты, которые не просто вам понравятся, а стратегически усилят стоимость всего вашего портфеля. Это инвестиционный подход к искусству.
-                    </p>
+
+                <div class="material-card p-6 flex flex-col h-full border-secondary">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">3</span> Усвідомлення</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-secondary mb-2">КАНАЛ: PDF-Гайд / Сторінка результату</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Чому ви вживаєте алкоголь відповідно до вашого архетипу?"</p>
+                        <p class="mt-2 text-sm">Детальний розбір "Тіні". Пояснюємо, що алкоголь — це ілюзія розслаблення або кнопка "вимкнення" інтелекту.</p>
+                    </div>
+                </div>
+
+                <div class="material-card p-6 flex flex-col h-full border-accent">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">4</span> Конверсія</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-accent mb-2">КАНАЛ: Direct / Messenger</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Готові навчитися свідомо вмикати силу богині без допінгів?"</p>
+                        <p class="mt-2 text-sm">Запрошення на 15-хвилинний "Архетиповий розбір". Пряма пропозиція допомоги на основі результату тесту.</p>
+                    </div>
+                </div>
+
+                <div class="material-card p-6 flex flex-col h-full border-primary">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">5</span> Терапія</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-primary mb-2">КАНАЛ: Онлайн-терапія</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Ви — не роль. Ви — велична гра."</p>
+                        <p class="mt-2 text-sm">Глибока робота з "Тінню". Навчаємо клієнтку використовувати афірмації та ресурси сплячих архетипів для балансу.</p>
+                    </div>
+                </div>
+
+                <div class="material-card p-6 flex flex-col h-full border-primary">
+                    <h4 class="text-xl font-bold mb-4 flex items-center text-primary"><span class="stage-number">6</span> Лояльність</h4>
+                    <div class="flex-grow">
+                        <p class="text-sm font-bold text-primary mb-2">КАНАЛ: Google Відгуки</p>
+                        <p class="text-gray-700"><strong>Текст:</strong> "Моє щастя більше не залежить від схвалення."</p>
+                        <p class="mt-2 text-sm">Анонімні відгуки про зміну життя. Клієнтки рекомендують "знайомство з богинями", що безпечно для їхньої репутації.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Shadow Mapping -->
+        <section class="mb-20">
+            <div class="mb-8">
+                <h3 class="text-3xl font-bold text-primary mb-4">Матриця «Тіні та Алкоголю»</h3>
+                <p class="text-lg">Аналіз тригерів вживання для кожного архетипу (база для вашого контенту).</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-lg shadow-md overflow-hidden">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="p-4 text-left">Архетип</th>
+                            <th class="p-4 text-left">Чому вона п'є? (Тригер)</th>
+                            <th class="p-4 text-left">Тіньова сторона</th>
+                            <th class="p-4 text-left">Рішення</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="p-4 font-bold">Артеміда</td>
+                            <td class="p-4">Щоб "зняти обладунки" та розслабити м'язи</td>
+                            <td class="p-4">"Залізна леді", жорстокість до себе</td>
+                            <td class="p-4">Дозвіл на вразливість</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Афіна</td>
+                            <td class="p-4">"Кнопка вимкнення" потужного інтелекту</td>
+                            <td class="p-4">"Голова на паличці", перфекціонізм</td>
+                            <td class="p-4">Дозвіл на нелогічність</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Гестія</td>
+                            <td class="p-4">"Соціальний місток" до зовнішнього світу</td>
+                            <td class="p-4">Невидимість, відстороненість</td>
+                            <td class="p-4">Видимість та активна позиція</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Гера</td>
+                            <td class="p-4">Тимчасовий вихід із ролі ідеальної дружини</td>
+                            <td class="p-4">Розчиненість у партнері, ревнощі</td>
+                            <td class="p-4">Пошук власної цінності</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Деметра</td>
+                            <td class="p-4">Повернення до свого "Я" (пустота після дітей)</td>
+                            <td class="p-4">Гіперопіка, маніпуляція провиною</td>
+                            <td class="p-4">Турбота про внутрішню дитину</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Персефона</td>
+                            <td class="p-4">Псевдо-перехід у дорослість (вимкнути тривогу)</td>
+                            <td class="p-4">Безпорадність, втеча в ілюзії</td>
+                            <td class="p-4">Виховання внутрішнього дорослого</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Афродіта</td>
+                            <td class="p-4">"Прикрутити гучність" інтенсивної енергії</td>
+                            <td class="p-4">Емоційний хаос, імпульсивність</td>
+                            <td class="p-4">Тренування витривалості</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4-Week Plan -->
+        <section class="mb-16">
+            <div class="mb-8">
+                <h3 class="text-3xl font-bold text-primary mb-4">4-Тижневий Графік Реалізації</h3>
+                <p class="text-lg">Накопичувальний ефект: від перших тестів до 10 клієнток.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="material-card p-6 h-full">
+                    <div class="chart-container">
+                        <canvas id="planChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-400">
+                        <h4 class="font-bold text-primary">Тиждень 1: Контент-Штурм</h4>
+                        <p class="text-sm">7 Reels про архетипи. Мета: 500+ проходжень тесту.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-600">
+                        <h4 class="font-bold text-primary">Тиждень 2: Директ-Маркетинг</h4>
+                        <p class="text-sm">Персональні розбори в Direct. Мета: 20 заявок на діагностику.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-pink-400">
+                        <h4 class="font-bold text-primary">Тиждень 3: Кейси & "Тіні"</h4>
+                        <p class="text-sm">Історії Афін та Артемід. Мета: Перші 5 оплат терапії.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-pink-600">
+                        <h4 class="font-bold text-primary">Тиждень 4: Масштабування</h4>
+                        <p class="text-sm">Збір відгуків про "пошук себе". Мета: Досягнення цілі — 10 клієнток.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 6. How to Start: Simplify the Path -->
-    <section class="py-28 md:py-48 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-24">
-                <h2 class="text-4xl md:text-5xl leading-tight">Просто. Прозрачно. Прибыльно.</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto text-center">
-                <div>
-                    <div class="w-20 h-20 bg-[#141414] text-white rounded-full flex items-center justify-center mx-auto mb-8"><span class="text-3xl" style="font-family: 'Lora', serif;">1</span></div>
-                    <h3 class="text-2xl mb-4">Загрузите</h3><p class="text-gray-600 leading-relaxed">Конфиденциально каталогизируйте вашу коллекцию в нашей защищенной экосистеме.</p>
-                </div>
-                <div>
-                    <div class="w-20 h-20 bg-[#141414] text-white rounded-full flex items-center justify-center mx-auto mb-8"><span class="text-3xl" style="font-family: 'Lora', serif;">2</span></div>
-                    <h3 class="text-2xl mb-4">Анализируйте</h3><p class="text-gray-600 leading-relaxed">Получите мгновенную рыночную оценку от нашего AI и персональные рекомендации от эксперта.</p>
-                </div>
-                <div>
-                    <div class="w-20 h-20 bg-[#141414] text-white rounded-full flex items-center justify-center mx-auto mb-8"><span class="text-3xl" style="font-family: 'Lora', serif;">3</span></div>
-                    <h3 class="text-2xl mb-4">Действуйте</h3><p class="text-gray-600 leading-relaxed">Принимайте взвешенные решения через наш эксклюзивный и прозрачный маркетплейс.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- 7. The Club -->
-    <section class="py-28 md:py-48 bg-[#141414] text-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-24">
-                 <p class="font-mono uppercase tracking-widest text-sm mb-4 gold-accent-text">[ Клуб ]</p>
-                <h2 class="text-4xl md:text-5xl leading-tight">Больше, чем платформа.</h2>
-                <p class="mt-6 text-xl text-gray-400 leading-relaxed">Членство в <span class="accent-color">Heritage Ledger</span> — это не просто доступ к инструменту. Это вступление в закрытое сообщество, построенное на капитале, экспертизе и общей миссии.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                <div class="text-center"><h3 class="text-2xl mb-3 font-semibold text-white"><span class="accent-color">Синергия</span></h3><p class="text-gray-400 leading-relaxed">Мы соединяем ваш капитал с кругом избранных искусствоведов, кураторов и галерей, создавая новые возможности для роста и культурного влияния.</p></div>
-                <div class="text-center"><h3 class="text-2xl mb-3 font-semibold text-white"><span class="accent-color">Признание</span></h3><p class="text-gray-400 leading-relaxed">Резиденты клуба получают признание в кругу ведущих европейских музеев и институций, укрепляя свою репутацию на международной арене.</p></div>
-                <div class="text-center"><h3 class="text-2xl mb-3 font-semibold text-white"><span class="accent-color">Наследие</span></h3><p class="text-gray-400 leading-relaxed">Вы не просто владеете искусством — вы становитесь покровителем культуры, создавая цифровую летопись (Heritage Ledger) для будущих поколений.</p></div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function wrapLabelText(label, limit = 16) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 <= limit) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
 
-    <!-- 8. PRINCIPLES: Reassure and Build Trust -->
-    <section class="py-28 md:py-48 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-24">
-                 <p class="font-mono uppercase tracking-widest text-sm mb-4 accent-color">[ Гарантии ]</p>
-                <h2 class="text-4xl md:text-5xl leading-tight">Наши обязательства</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 manifesto-grid">
-                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 01 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Абсолютная Приватность</h3><p class="text-gray-600 leading-relaxed">Ваши данные и активы защищены на уровне швейцарского банка. Мы работаем в закрытой экосистеме, гарантируя полную конфиденциальность.</p></div>
-                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 02 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Интеллект</h3><p class="text-gray-600 leading-relaxed">Вы получаете доступ к полной аналитике: провенанс, история продаж, рыночные тренды. Никаких "черных ящиков". Только факты для принятия решений.</p></div>
-                <div class="border bg-white p-8 md:p-12"><p class="font-mono text-lg mb-8 gold-accent-text">[ 03 ]</p><h3 class="text-2xl lg:text-3xl mb-4">Сообщество</h3><p class="text-gray-600 leading-relaxed">Членство в <span class="accent-color">Heritage Ledger</span> — только по приглашениям. Мы создаем сообщество равных, где репутация и экспертиза являются главным капиталом.</p></div>
-            </div>
-        </div>
-    </section>
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
 
-    <!-- 9. INVITATION: The Call to Action -->
-    <section id="contact" class="py-28 md:py-48 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-4xl md:text-5xl leading-tight mb-8">Новая эпоха управления капиталом.</h2>
-                <p class="text-xl text-gray-700 mb-12">Рынок искусства изменился. Мы предлагаем вам быть в авангарде этих перемен.</p>
-                <a href="mailto:partner@heritageledger.com" class="cta-button inline-block font-mono uppercase tracking-widest text-lg px-12 py-4 rounded-full">
-                    Подать заявку на членство
-                </a>
-            </div>
-        </div>
-    </section>
+        const funnelLabels = [
+            "1. Побачили Reels (Охоплення)",
+            "2. Пройшли Тест (Інтерес)",
+            "3. Отримали PDF (Усвідомлення)",
+            "4. Заявка на Розбір (Конверсія)",
+            "5. Оплата Терапії (Продаж)",
+            "6. Відгук у Google (Лояльність)"
+        ].map(l => wrapLabelText(l, 14));
 
-    <!-- FOOTER: The Final Word -->
-    <footer class="py-12 bg-[#141414] text-gray-600">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm font-mono">
-            <p>&copy; 2025 Heritage Ledger. Конфиденциально.</p>
-            <p class="mt-4 md:mt-0">The Art of Capital Management.</p>
-        </div>
-    </footer>
+        const ctxFunnel = document.getElementById('funnelChart').getContext('2d');
+        new Chart(ctxFunnel, {
+            type: 'bar',
+            data: {
+                labels: funnelLabels,
+                datasets: [{
+                    label: 'Кількість жінок',
+                    data: [2000, 600, 200, 40, 10, 4],
+                    backgroundColor: ['#1E3A8A', '#3B82F6', '#60A5FA', '#EC4899', '#F472B6', '#FBCFE8'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: { legend: { display: false }, tooltip: tooltipConfig },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+                    y: { beginAtZero: true, grid: { color: '#E2E8F0' }, title: { display: true, text: 'Охоплення / Кількість' } }
+                }
+            }
+        });
 
+        const planLabels = ["Старт", "Тиждень 1", "Тиждень 2", "Тиждень 3", "Тиждень 4"].map(l => wrapLabelText(l));
+        const ctxPlan = document.getElementById('planChart').getContext('2d');
+        new Chart(ctxPlan, {
+            type: 'line',
+            data: {
+                labels: planLabels,
+                datasets: [{
+                    label: 'Клієнтки на терапії',
+                    data: [0, 1, 3, 6, 10],
+                    borderColor: '#EC4899',
+                    backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                    borderWidth: 4,
+                    pointBackgroundColor: '#1E3A8A',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: { legend: { display: false }, tooltip: tooltipConfig },
+                scales: {
+                    y: { beginAtZero: true, max: 12, ticks: { stepSize: 2 }, grid: { color: '#E2E8F0' } }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
