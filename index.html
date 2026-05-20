@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для близьких залежного – Психологічна студія Взаємодія</title>
-<meta name="description" content="Якщо ваш близький грає, програє гроші, бере борги — ви прийшли за адресою. Безкоштовна діагностика для дружин, сестер і матерів. Конфіденційно.">
-<meta property="og:title" content="Він обіцяв, що це востаннє. Минулого тижня. І позаминулого.">
-<meta property="og:description" content="Для дружин, сестер, матерів. Якщо ваш близький грає і ви не знаєте, що робити — почніть звідси. Безкоштовна діагностика, анонімно.">
-<meta property="og:type" content="article">
+<title>Програма відновлення — Психологічна студія Взаємодія</title>
+<meta name="description" content="Конфіденційна програма для людей з ігровою залежністю. Доказові методи, абсолютна анонімність, прозора ціна. Перший крок — сьогодні.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,10 +23,10 @@
   --line-soft: rgba(29, 58, 47, 0.18);
   --muted: #6b6357;
   --paper: #fbf8f1;
+  --warn-bg: #fdf6e7;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -42,21 +40,9 @@ body {
   overflow-x: hidden;
 }
 
-.wrap {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 32px;
-  position: relative;
-}
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; }
+.wrap-narrow { max-width: 820px; margin: 0 auto; padding: 0 32px; position: relative; }
 
-.wrap-narrow {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 0 32px;
-  position: relative;
-}
-
-/* Eyebrow tag — DM Mono with dash prefix */
 .eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
@@ -80,8 +66,8 @@ body {
 }
 .eyebrow.gold::before { background: var(--gold); }
 .eyebrow.ink::before { background: var(--ink); }
+.eyebrow.bg::before { background: var(--bg); }
 
-/* Headings */
 h1, h2, h3, h4 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
@@ -89,49 +75,13 @@ h1, h2, h3, h4 {
   color: var(--ink);
   letter-spacing: -0.01em;
 }
-
-h1 {
-  font-size: clamp(40px, 6.2vw, 76px);
-  font-weight: 500;
-  margin-bottom: 28px;
-}
-h1 em {
-  font-style: italic;
-  color: var(--red);
-  font-weight: 500;
-}
-
-h2 {
-  font-size: clamp(32px, 4.4vw, 54px);
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-h2 em {
-  font-style: italic;
-  color: var(--red);
-  font-weight: 500;
-}
-
-h3 {
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-p {
-  font-size: clamp(17px, 1.4vw, 20px);
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin-bottom: 16px;
-}
-
-.lead {
-  font-size: clamp(19px, 1.7vw, 23px);
-  line-height: 1.55;
-  color: var(--ink);
-  font-weight: 400;
-}
-
+h1 { font-size: clamp(40px, 6.2vw, 76px); font-weight: 500; margin-bottom: 28px; }
+h1 em { font-style: italic; color: var(--red); font-weight: 500; }
+h2 { font-size: clamp(32px, 4.4vw, 54px); font-weight: 500; margin-bottom: 24px; }
+h2 em { font-style: italic; color: var(--red); font-weight: 500; }
+h3 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 600; margin-bottom: 16px; }
+p { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.6; color: var(--ink-soft); margin-bottom: 16px; }
+.lead { font-size: clamp(19px, 1.7vw, 23px); line-height: 1.55; color: var(--ink); }
 a { color: inherit; text-decoration: none; }
 
 /* === HEADER === */
@@ -143,11 +93,7 @@ header.site {
   top: 0;
   z-index: 100;
 }
-header.site .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; }
 .logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -169,22 +115,16 @@ header.site .wrap {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--bg);
+  background: var(--red);
   padding: 10px 18px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--red);
   transition: all 0.2s;
 }
-.header-cta:hover {
-  background: var(--ink);
-  color: var(--bg);
-}
+.header-cta:hover { background: var(--ink); border-color: var(--ink); }
 
 /* === HERO === */
-.hero {
-  padding: 110px 0 100px;
-  position: relative;
-  overflow: hidden;
-}
+.hero { padding: 100px 0 90px; position: relative; overflow: hidden; }
 .hero::before {
   content: "";
   position: absolute;
@@ -213,12 +153,12 @@ header.site .wrap {
   position: absolute;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: clamp(120px, 18vw, 240px);
+  font-size: clamp(120px, 18vw, 220px);
   font-weight: 400;
   -webkit-text-stroke: 1px var(--line-soft);
   color: transparent;
-  bottom: -40px;
-  left: -60px;
+  bottom: -30px;
+  left: -40px;
   letter-spacing: -0.02em;
   line-height: 1;
   pointer-events: none;
@@ -227,21 +167,49 @@ header.site .wrap {
   z-index: 0;
 }
 .hero .wrap { position: relative; z-index: 2; }
-.hero-content { max-width: 780px; }
-.hero h1 {
-  margin-bottom: 32px;
-}
+.hero-content { max-width: 820px; }
+.hero h1 { margin-bottom: 32px; }
 .hero .sub {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: clamp(20px, 1.9vw, 26px);
   color: var(--ink-soft);
   line-height: 1.5;
-  margin-bottom: 44px;
-  max-width: 620px;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 50px;
+  margin-top: 44px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line-soft);
+  max-width: 600px;
+}
+@media (max-width: 640px) {
+  .hero-stats { grid-template-columns: 1fr; gap: 24px; }
+}
+.hero-stats .stat strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3vw, 42px);
+  font-weight: 500;
+  color: var(--red);
+  display: block;
+  line-height: 1;
+  font-style: italic;
+}
+.hero-stats .stat span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-top: 8px;
 }
 
-/* Button */
+/* === BUTTON === */
 .btn {
   display: inline-block;
   font-family: 'DM Mono', monospace;
@@ -256,16 +224,13 @@ header.site .wrap {
   cursor: pointer;
   font-weight: 400;
 }
-.btn:hover {
-  background: var(--red);
-  border-color: var(--red);
-  color: var(--bg);
-}
+.btn:hover { background: var(--red); border-color: var(--red); color: var(--bg); }
 .btn.red { background: var(--red); border-color: var(--red); }
 .btn.red:hover { background: var(--ink); border-color: var(--ink); }
-.btn.ghost { background: transparent; color: var(--ink); }
-.btn.ghost:hover { background: var(--ink); color: var(--bg); }
-
+.btn.large {
+  padding: 22px 44px;
+  font-size: 14px;
+}
 .btn-meta {
   display: block;
   font-family: 'DM Mono', monospace;
@@ -276,121 +241,75 @@ header.site .wrap {
   text-transform: uppercase;
 }
 
-/* === SECTION BASE === */
-section {
-  padding: 100px 0;
-  position: relative;
-}
+/* === SECTIONS === */
+section { padding: 100px 0; position: relative; }
 section.alt { background: var(--bg-alt); }
 section.paper { background: var(--paper); }
-section.dark {
-  background: var(--ink);
-  color: var(--bg);
-}
-section.dark h2, section.dark h3, section.dark p { color: var(--bg); }
+section.dark { background: var(--ink); color: var(--bg); }
+section.dark h2, section.dark h3, section.dark p, section.dark li { color: var(--bg); }
 section.dark .eyebrow { color: var(--gold); }
 section.dark .eyebrow::before { background: var(--gold); }
+section.dark h2 em { color: var(--gold); }
+section.dark strong { color: var(--gold); }
 
-/* === RECOGNITION LIST === */
-.recognition {
+/* === DIRECT ADDRESS === */
+.direct-address {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 60px 0;
-  margin: 40px 0;
+  padding: 50px 0;
+  margin-top: 50px;
+  position: relative;
 }
-.recognition-list {
-  list-style: none;
+.direct-address::before {
+  content: "01";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: var(--bg);
+  padding: 0 20px 0 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red);
 }
-.recognition-list li {
+.direct-address p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 2.1vw, 28px);
+  font-size: clamp(22px, 2.2vw, 28px);
   line-height: 1.55;
   color: var(--ink);
-  padding: 18px 0;
-  padding-left: 40px;
-  border-bottom: 1px solid var(--line-soft);
-  position: relative;
+  margin-bottom: 22px;
   font-weight: 400;
 }
-.recognition-list li:last-child { border-bottom: none; }
-.recognition-list li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  top: 18px;
-  color: var(--red);
-  font-weight: 500;
-}
-.recognition-closer {
-  margin-top: 40px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(20px, 1.8vw, 24px);
-  color: var(--ink);
-  text-align: center;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
+.direct-address p:last-child { margin-bottom: 0; }
+.direct-address em { font-style: italic; color: var(--red); }
+.direct-address strong { font-weight: 600; color: var(--ink); }
 
-/* === TWO COLUMN === */
-.two-col {
+/* === MECHANICS BLOCK === */
+.mechanics {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
+  margin-top: 60px;
   align-items: start;
 }
 @media (max-width: 820px) {
-  .two-col { grid-template-columns: 1fr; gap: 48px; }
+  .mechanics { grid-template-columns: 1fr; gap: 36px; }
 }
-
-/* === NOT-WORK LIST === */
-.notwork-list {
-  list-style: none;
-  margin-top: 32px;
-}
-.notwork-list li {
-  padding: 22px 0 22px 40px;
-  border-bottom: 1px solid var(--line-soft);
+.mech-week {
+  border-left: 2px solid var(--red);
+  padding: 8px 0 8px 28px;
   position: relative;
 }
-.notwork-list li:last-child { border-bottom: none; }
-.notwork-list li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  top: 22px;
+.mech-week-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--red);
+  margin-bottom: 14px;
   font-weight: 500;
 }
-.notwork-list strong {
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20px, 1.8vw, 24px);
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.notwork-list p {
-  font-size: 17px;
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-/* === WHAT WORKS / THREE COLUMNS === */
-.three-col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-top: 60px;
-  border-top: 1px solid var(--line-soft);
-}
-.three-col > div {
-  padding: 40px 32px;
-  border-right: 1px solid var(--line-soft);
-}
-.three-col > div:last-child { border-right: none; }
-.three-col h4 {
+.mech-week h4 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   font-weight: 600;
@@ -398,32 +317,73 @@ section.dark .eyebrow::before { background: var(--gold); }
   margin-bottom: 14px;
   font-style: italic;
 }
-.three-col p {
+.mech-week ul { list-style: none; padding: 0; margin-top: 18px; }
+.mech-week ul li {
+  padding: 8px 0 8px 22px;
+  position: relative;
   font-size: 16px;
   color: var(--ink-soft);
-  margin: 0;
 }
-@media (max-width: 820px) {
-  .three-col { grid-template-columns: 1fr; }
-  .three-col > div { border-right: none; border-bottom: 1px solid var(--line-soft); padding: 32px 0; }
-  .three-col > div:last-child { border-bottom: none; }
+.mech-week ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
 }
 
-/* === DIAGNOSTIC TEST === */
-.test-card {
+/* === OBJECTION BLOCK === */
+.objection {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 36px;
+  margin: 36px 0;
+  position: relative;
+}
+.objection::before {
+  content: "ЗАПЕРЕЧЕННЯ";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  background: var(--paper);
+  padding: 0 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+.objection-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(20px, 1.9vw, 24px);
+  color: var(--ink);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.objection-q::before { content: "«"; color: var(--red); font-style: normal; margin-right: 4px; }
+.objection-q::after { content: "»"; color: var(--red); font-style: normal; margin-left: 4px; }
+.objection-a {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.objection-a strong { color: var(--ink); font-weight: 600; }
+
+/* === QUICK TEST === */
+.qtest {
   background: var(--paper);
   border: 1px solid var(--line);
   padding: 56px 48px;
+  margin-top: 60px;
   position: relative;
 }
-.test-card::before {
+.qtest::before {
   content: "";
   position: absolute;
   top: -1px; left: -1px; right: -1px;
   height: 4px;
   background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 50%, var(--red) 50%, var(--red) 75%, var(--gold) 75%, var(--gold) 100%);
 }
-.test-progress {
+.qtest-progress {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -431,34 +391,24 @@ section.dark .eyebrow::before { background: var(--gold); }
   text-transform: uppercase;
   margin-bottom: 24px;
 }
-.test-progress strong { color: var(--red); font-weight: 500; }
-.test-bar {
+.qtest-progress strong { color: var(--red); font-weight: 500; }
+.qtest-bar {
   height: 2px;
   background: var(--line-soft);
   margin-bottom: 40px;
-  position: relative;
 }
-.test-bar-fill {
-  height: 100%;
-  background: var(--red);
-  transition: width 0.4s;
-  width: 0;
-}
-.test-question {
+.qtest-bar-fill { height: 100%; background: var(--red); transition: width 0.4s; width: 0; }
+.qtest-question {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 2.5vw, 32px);
+  font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 32px;
   line-height: 1.3;
-  min-height: 80px;
+  min-height: 60px;
 }
-.test-options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.test-option {
+.qtest-options { display: flex; flex-direction: column; gap: 12px; }
+.qtest-option {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.05em;
@@ -472,20 +422,15 @@ section.dark .eyebrow::before { background: var(--gold); }
   text-transform: uppercase;
   font-weight: 400;
 }
-.test-option:hover {
+.qtest-option:hover {
   border-color: var(--red);
   background: rgba(138, 29, 44, 0.04);
   color: var(--red);
 }
-.test-result {
-  display: none;
-}
-.test-result.active { display: block; }
-.test-result h3 {
-  font-size: clamp(26px, 2.6vw, 36px);
-  margin-bottom: 20px;
-}
-.test-result .score {
+.qtest-result { display: none; }
+.qtest-result.active { display: block; }
+.qtest-result h3 { font-size: clamp(24px, 2.6vw, 34px); margin-bottom: 18px; }
+.qtest-result .score-tag {
   display: inline-block;
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -496,50 +441,171 @@ section.dark .eyebrow::before { background: var(--gold); }
   color: var(--red);
   margin-bottom: 28px;
 }
-.test-result .score.high { border-color: var(--red); color: var(--red); }
-.test-result .score.mid { border-color: var(--gold); color: var(--gold); }
-.test-result .score.low { border-color: var(--ink); color: var(--ink); }
-.test-result p { margin-bottom: 18px; }
-.test-result-cta { margin-top: 36px; }
+
+/* === PROGRAM CARDS === */
+.programs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 60px;
+  border: 1px solid var(--line);
+}
+@media (max-width: 820px) {
+  .programs { grid-template-columns: 1fr; }
+}
+.prog-card {
+  padding: 40px 32px;
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.prog-card:last-child { border-right: none; }
+@media (max-width: 820px) {
+  .prog-card { border-right: none; border-bottom: 1px solid var(--line); }
+  .prog-card:last-child { border-bottom: none; }
+}
+.prog-card.featured { background: var(--ink); color: var(--bg); }
+.prog-card.featured h3, .prog-card.featured .prog-price strong, .prog-card.featured .prog-price-meta { color: var(--bg); }
+.prog-card.featured ul li { color: var(--gold-soft); }
+.prog-card.featured ul li::before { color: var(--gold); }
+.prog-card.featured .prog-tag { background: var(--gold); color: var(--ink); }
+.prog-card.featured .btn { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.prog-card.featured .btn:hover { background: var(--red); border-color: var(--red); color: var(--bg); }
+
+.prog-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--red);
+  color: var(--bg);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  padding: 6px 14px;
+  text-transform: uppercase;
+}
+.prog-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.prog-duration {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.prog-card.featured .prog-duration { color: var(--gold); }
+.prog-price {
+  padding: 24px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 24px;
+}
+.prog-card.featured .prog-price { border-color: rgba(217, 190, 138, 0.2); }
+.prog-price strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--ink);
+  font-style: italic;
+  display: block;
+  line-height: 1;
+}
+.prog-price-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.prog-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+.prog-card ul li {
+  padding: 8px 0 8px 22px;
+  position: relative;
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.prog-card ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--red);
+}
+.prog-card .btn { width: 100%; text-align: center; padding: 16px; }
+
+/* === GUARANTEE === */
+.guarantee {
+  margin-top: 50px;
+  padding: 36px;
+  background: var(--bg);
+  border: 1px solid var(--gold);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .guarantee { grid-template-columns: 1fr; }
+}
+.guarantee-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 64px;
+  color: var(--gold);
+  line-height: 1;
+}
+.guarantee h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.guarantee p { margin: 0; font-size: 16px; }
 
 /* === SOCIAL PROOF === */
 .proof-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   margin-top: 60px;
   border-top: 1px solid var(--line-soft);
   border-left: 1px solid var(--line-soft);
 }
+@media (max-width: 820px) {
+  .proof-grid { grid-template-columns: 1fr; }
+}
 .proof-card {
-  padding: 40px;
+  padding: 36px;
   border-right: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
   background: var(--paper);
 }
-@media (max-width: 820px) {
-  .proof-grid { grid-template-columns: 1fr; }
-}
 .proof-quote {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.55;
   color: var(--ink);
   margin-bottom: 20px;
 }
-.proof-quote::before {
-  content: "« ";
-  color: var(--red);
-  font-style: normal;
-  font-weight: 500;
-}
-.proof-quote::after {
-  content: " »";
-  color: var(--red);
-  font-style: normal;
-  font-weight: 500;
-}
+.proof-quote::before { content: "« "; color: var(--red); font-style: normal; font-weight: 500; }
+.proof-quote::after { content: " »"; color: var(--red); font-style: normal; font-weight: 500; }
 .proof-author {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
@@ -549,82 +615,55 @@ section.dark .eyebrow::before { background: var(--gold); }
   padding-left: 24px;
   position: relative;
 }
-.proof-author::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
+.proof-author::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+.proof-result {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-top: 12px;
+  padding-left: 24px;
+  position: relative;
 }
+.proof-result::before { content: "→"; position: absolute; left: 0; color: var(--red); }
 
-/* === EXPERT === */
-.expert {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 60px;
-  align-items: center;
-}
-@media (max-width: 820px) {
-  .expert { grid-template-columns: 1fr; }
-}
-.expert-photo {
+/* === URGENCY === */
+.urgency {
+  text-align: center;
+  padding: 80px 0;
   background: var(--ink);
-  aspect-ratio: 3/4;
+  color: var(--bg);
   position: relative;
   overflow: hidden;
 }
-.expert-photo::before {
-  content: "ТП";
+.urgency::before {
+  content: "ВІКНО";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 200px;
-  color: var(--gold);
-  opacity: 0.3;
-  -webkit-text-stroke: 1px var(--gold);
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(180px, 26vw, 360px);
+  font-weight: 400;
+  -webkit-text-stroke: 1px rgba(217, 190, 138, 0.15);
+  color: transparent;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
 }
-.expert-photo::after {
-  content: "ФОТО / PHOTO";
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-}
-.expert-credentials {
-  list-style: none;
-  margin-top: 24px;
-}
-.expert-credentials li {
-  padding: 12px 0 12px 28px;
-  position: relative;
-  font-size: 17px;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--line-soft);
-}
-.expert-credentials li:last-child { border-bottom: none; }
-.expert-credentials li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-}
+.urgency .wrap-narrow { position: relative; z-index: 2; }
+.urgency h2 { color: var(--bg); }
+.urgency p { color: var(--gold-soft); }
 
 /* === FAQ === */
 .faq-list { margin-top: 40px; }
-.faq-item {
-  border-bottom: 1px solid var(--line-soft);
-  padding: 28px 0;
-}
-.faq-item:first-child {
-  border-top: 1px solid var(--line);
-  padding-top: 28px;
-}
+.faq-item { border-bottom: 1px solid var(--line-soft); padding: 28px 0; }
+.faq-item:first-child { border-top: 1px solid var(--line); }
 .faq-q {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(20px, 2vw, 24px);
@@ -637,12 +676,7 @@ section.dark .eyebrow::before { background: var(--gold); }
   justify-content: space-between;
   align-items: center;
 }
-.faq-q::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--red);
-}
+.faq-q::before { content: "—"; position: absolute; left: 0; color: var(--red); }
 .faq-toggle {
   font-family: 'DM Mono', monospace;
   font-size: 18px;
@@ -652,31 +686,14 @@ section.dark .eyebrow::before { background: var(--gold); }
   margin-left: 20px;
 }
 .faq-item.open .faq-toggle { transform: rotate(45deg); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding-left: 36px;
-}
-.faq-item.open .faq-a {
-  max-height: 400px;
-  padding-top: 16px;
-}
-.faq-a p {
-  font-size: 17px;
-  color: var(--ink-soft);
-  margin: 0;
-}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding-left: 36px; }
+.faq-item.open .faq-a { max-height: 500px; padding-top: 16px; }
+.faq-a p { font-size: 17px; color: var(--ink-soft); margin: 0; }
 
-/* === FINAL CTA === */
-.final-cta {
-  text-align: center;
-  padding: 140px 0;
-  position: relative;
-  overflow: hidden;
-}
+/* === FINAL === */
+.final-cta { text-align: center; padding: 140px 0; position: relative; overflow: hidden; }
 .final-cta::before {
-  content: "ВЗАЄМОДІЯ";
+  content: "КОНТРОЛЬ";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -734,33 +751,20 @@ footer.site a {
 }
 footer.site a:hover { border-bottom-color: var(--gold); }
 
-/* === Body section text === */
 .body-text p { margin-bottom: 22px; font-size: clamp(17px, 1.4vw, 19px); }
 .body-text p strong { color: var(--ink); font-weight: 600; }
 .body-text p em { color: var(--red); font-style: italic; }
-
-.section-intro {
-  max-width: 720px;
-  margin-bottom: 60px;
-}
-
-/* Divider element */
-.div-mark {
-  width: 60px;
-  height: 1px;
-  background: var(--red);
-  margin: 32px 0;
-}
+.section-intro { max-width: 720px; margin-bottom: 60px; }
+.div-mark { width: 60px; height: 1px; background: var(--red); margin: 32px 0; }
 
 @media (max-width: 640px) {
   .wrap, .wrap-narrow { padding: 0 22px; }
   section { padding: 70px 0; }
-  .hero { padding: 70px 0 80px; }
-  .test-card { padding: 36px 24px; }
-  .proof-card { padding: 28px 24px; }
-  .three-col > div { padding: 28px 0; }
-  header.site .wrap { gap: 16px; }
-  .header-cta { padding: 8px 12px; font-size: 10px; }
+  .hero { padding: 60px 0 70px; }
+  .qtest { padding: 36px 24px; }
+  .prog-card { padding: 32px 24px; }
+  .proof-card { padding: 26px 22px; }
+  .objection { padding: 28px 22px; }
 }
 </style>
 </head>
@@ -769,243 +773,322 @@ footer.site a:hover { border-bottom-color: var(--gold); }
 <header class="site">
   <div class="wrap">
     <a href="/" class="logo">ВЗАЄМОДІЯ<span>Private Recovery Club</span></a>
-    <a href="#test" class="header-cta">Діагностика</a>
+    <a href="#programs" class="header-cta">Програми →</a>
   </div>
 </header>
 
 <!-- === HERO === -->
 <section class="hero">
-  <div class="hero-bg-text">Лудоманія</div>
+  <div class="hero-bg-text">контроль</div>
   <div class="wrap">
     <div class="hero-content">
-      <div class="eyebrow"> Для дружин · сестер · матерів</div>
-      <h1>Він обіцяв,<br>що це <em>востаннє.</em><br>Минулого тижня.<br>І позаминулого.</h1>
-      <p class="sub">Якщо ви читаєте це серед ночі, поки він грає – ви прийшли за адресою.</p>
-      <a href="#test" class="btn red">Пройти діагностику для близьких →</a>
-      <span class="btn-meta">5 хвилин · анонімно · без реєстрації</span>
+      <div class="eyebrow">— Конфіденційно · Приватна сторінка</div>
+      <h1>Ви написали нам.<br>Це вже <em>більше,</em><br>ніж зробили<br>9 з 10 в вашій ситуації.</h1>
+      <p class="sub">Тепер коротко: хто ми, як ми працюємо, скільки це коштує, і чому почати треба сьогодні, а не «з понеділка».</p>
+      <a href="#programs" class="btn red large">Подивитися програми →</a>
+      <span class="btn-meta">Прозора ціна · розстрочка · повна анонімність</span>
+
+      <div class="hero-stats">
+        <div class="stat"><strong>15+</strong><span>років практики</span></div>
+        <div class="stat"><strong>15 000</strong><span>консультацій</span></div>
+        <div class="stat"><strong>87%</strong><span>стійкого результату</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- === RECOGNITION === -->
+<!-- === DIRECT TALK === -->
 <section class="alt">
   <div class="wrap-narrow">
-    <div class="eyebrow"> Це про вас?</div>
-    <h2>Перевірте, чи знайоме вам<br>хоча б <em>три </em>з семи.</h2>
-    <div class="recognition">
-      <ul class="recognition-list">
-        <li>ви перевіряєте його телефон, коли він спить</li>
-        <li>ви знаєте баланс його карток краще за нього</li>
-        <li>ви брехали батькам, рідним, що «все нормально»</li>
-        <li>ви ховали гроші – у банці з крупами, у книжці, в білизні</li>
-        <li>ви плакали в машині, перш ніж зайти додому</li>
-        <li>ви гуглили «як зрозуміти, що близький грає»</li>
-        <li>ви думали піти. І не пішли. І зневажаєте себе за це.</li>
-      </ul>
-    </div>
-    <p class="recognition-closer"><em>Якщо хоча б три пункти – ваші, цей текст для вас.</em></p>
-  </div>
-</section>
+    <div class="eyebrow">— Без вступу. Прямо по суті.</div>
+    <h2>Те, що ви прочитаєте далі —<br>не <em>«мотивація»</em> і не лекція.</h2>
 
-<!-- === WHAT'S HAPPENING TO YOU === -->
-<section>
-  <div class="wrap-narrow body-text">
-    <div class="eyebrow">Що з вами зараз?</div>
-    <h2>Ви не «слабка».<br>Ви <em>виснажена.</em></h2>
-    <div class="div-mark"></div>
-    <p>Те, що з вами відбувається, має назву – <strong>співзалежність</strong>. Це не діагноз і не вирок. Це стан, у який потрапляє людина, яка роками живе поряд із залежним: рятує, контролює, прикриває, мовчить...</p>
-    <p>Ви не винні в тому, що він грає. Ви не зможете змусити його зупинитися і не тому, що ви недостатньо стараєтеся, а тому, що <strong>залежність не зупиняється на прохання близьких</strong>. Ніколи. Навіть коли вони плачуть. Навіть коли йдуть. Навіть коли повертаються.</p>
-    <p>Але ви можете зробити дещо інше – <em>і саме це працює</em>.</p>
-  </div>
-</section>
-
-<!-- === WHAT DOESN'T WORK === -->
-<section class="alt">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Чому ви виснажена?</div>
-    <h2>Чому розмови, ультиматуми<br>і контроль <em>не допомагають.</em></h2>
-    <p style="margin-top: 20px; max-width: 600px;">Ви це все вже пробували. Не один раз. І щоразу винили себе. Подивіться, чому жодне з цього <strong style="color:var(--ink);">в принципі не може спрацювати</strong> з залежністю:</p>
-
-    <ul class="notwork-list">
-      <li>
-        <strong>«Поговорити по-доброму»</strong>
-        <p>Він обіцяє, плаче, наступного тижня грає знову. Розмова не вмикає внутрішню зупинку – її просто немає в активній стадії залежності.</p>
-      </li>
-      <li>
-        <strong>Ультиматум «або я, або гра»</strong>
-        <p>Він обирає вас на словах і гру на ділі. Бо мозок залежного вже зробив вибір – він просто не може сказати про це вголос.</p>
-      </li>
-      <li>
-        <strong>Сховати гроші, заблокувати карти</strong>
-        <p>Він знаходить інший спосіб: бере в борг, продає речі, бере кредит на ваше імʼя, програє кошти з корпоративної картки...</p>
-      </li>
-      <li>
-        <strong>Виплатити його борги «востаннє»</strong>
-        <p>Ви стаєте частиною циклу. Він грає → ви рятуєте → він грає сильніше. Кожен новий «останній раз» – глибше за попередній.</p>
-      </li>
-      <li>
-        <strong>Чекати, що «сам зрозуміє»</strong>
-        <p>Залежність не зникає сама. Вона прогресує. Поки ви чекаєте – стадія міняється з «грає вечорами» на «не виходить з квартири».</p>
-      </li>
-    </ul>
-
-    <p style="margin-top: 50px; font-style: italic; font-size: clamp(20px, 1.8vw, 24px); color: var(--ink); max-width: 660px;">
-      Ви робили все, що могли. Жодне не спрацювало <em>не тому, що ви робили щось не так</em> – а тому, що це в принципі не призначене для продолання залежності.
-    </p>
-  </div>
-</section>
-
-<!-- === WHAT WORKS === -->
-<section>
-  <div class="wrap-narrow body-text">
-    <div class="eyebrow gold">Що працює</div>
-    <h2>Допомога починається<br>з <em>вас.</em> Не з нього.</h2>
-    <div class="div-mark"></div>
-    <p>Це звучить дивно, але це єдине, що працює: <strong>поки ви виснажена, контролююча і живете в страху – у нього немає причин зупинитися</strong>. Бо ви тримаєте систему на собі: ви прикриваєте, ви платите, ви мовчите, ви виправдовуєте.</p>
-    <p>Коли ви виходите з цієї ролі – не «кидаєте його», а <strong>перестаєте бути його запасним парашутом</strong> – у нього зʼявляється перший справжній шанс зустрітися з наслідками своїх дій. Саме наслідки, а не ваші сльози, ведуть людину до рішення лікуватися.</p>
-    <p>Цьому навчають. <em>Це конкретні навички, не «сила волі» і не «просто відпустіть».</em></p>
-
-    <div class="three-col">
-      <div>
-        <h4>Ясність</h4>
-        <p>Ви побачите, де закінчується ваша відповідальність і починається його. Цей кордон ви перестали бачити роки тому.</p>
-      </div>
-      <div>
-        <h4>Енергія</h4>
-        <p>Ви перестанете витрачати її на контроль того, що неможливо контролювати. Вперше за довгий час повернеться сон.</p>
-      </div>
-      <div>
-        <h4>План</h4>
-        <p>Ви знатимете, що робити в кожен момент — під час зриву, після, у переговорах, у моменти його «обіцяю, востаннє».</p>
-      </div>
+    <div class="direct-address">
+      <p>Ви програли. Можливо багато. Можливо все, що у вас було. Можливо ще й чужі гроші — ті, що позичили «востаннє», «закрити цю одну позицію», «відігратися і кину».</p>
+      <p>Ви знаєте, як це закінчилось. <em>Тому ви тут.</em></p>
+      <p>Ми <strong>не будемо казати, що ви слабкі</strong>. Не будемо казати, що ви все зіпсували. Не будемо казати про «силу волі». Це все ви чули сто разів — від батьків, від дружини, від себе самого о третій ночі.</p>
+      <p>Ми скажемо інше: <strong>ігрова залежність — це не питання характеру. Це питання нейрохімії.</strong> Ваш мозок зламано не вами і не вчора. І так, його можна повернути в робочий стан. Не «силою», а конкретними протоколами, які працюють на тисячах людей до вас.</p>
+      <p>Нижче — як саме.</p>
     </div>
   </div>
 </section>
 
-<!-- === SOCIAL PROOF === -->
-<section class="paper">
-  <div class="wrap">
-    <div class="section-intro">
-      <div class="eyebrow"> Що пишуть жінки?</div>
-      <h2>Те, що ви відчуваєте –<br><em>не унікальне.</em> І не соромно.</h2>
-      <p style="max-width: 580px;">Це фрагменти повідомлень від жінок, які звернулися до нас. Імена та деталі змінено. Конфіденційність це основа всієї нашої роботи.</p>
-    </div>
-
-    <div class="proof-grid">
-      <div class="proof-card">
-        <p class="proof-quote">Я думала, що божеволію. Що я погана дружина, бо контролюю його. Перша консультація і я зрозуміла, що то не я зломана. Просто ніхто не пояснив, що зі мною робить життя з ним.</p>
-        <div class="proof-author">Анна, 34 · Київ · працювала 4 місяці</div>
-      </div>
-      <div class="proof-card">
-        <p class="proof-quote">Брат програв квартиру батьків. Я три роки витягувала його з боргів. Тут вперше почула, що я не зобовʼязана це робити. І що моя відмова – це не зрада, а його єдиний шанс.</p>
-        <div class="proof-author">Олена, 41 · Львів · сестра залежного</div>
-      </div>
-      <div class="proof-card">
-        <p class="proof-quote">Найдивніше – він сам прийшов на консультацію через півроку. Коли я перестала його рятувати, він вперше зустрівся з тим, що відбувається. Я не вірила, що так буває.</p>
-        <div class="proof-author">Наталя, 38 · онлайн · дружина гравця</div>
-      </div>
-      <div class="proof-card">
-        <p class="proof-quote">Я приходила «поплакати». Залишилась – бо зрозуміла, що тут вчать конкретного. Не «полюбіть себе», а що казати, коли він о третій ночі просить грошей. Це працює.</p>
-        <div class="proof-author">Ірина, 29 · Дніпро · 6 місяців у програмі</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === DIAGNOSTIC TEST === -->
-<section class="alt" id="test">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Перший крок</div>
-    <h2>Діагностика для близьких.<br><em>12 запитань · 5 хвилин.</em></h2>
-    <p style="margin: 20px 0 50px; max-width: 620px;">Половина запитань – про нього. Половина – про вас. На виході отримаєте оцінку стадії залежності близького, оцінку власного стану і три конкретні кроки на найближчий тиждень.</p>
-
-    <div class="test-card" id="test-card">
-      <div class="test-progress">Запитання <strong id="q-num">1</strong> з 12</div>
-      <div class="test-bar"><div class="test-bar-fill" id="bar-fill"></div></div>
-      <div class="test-question" id="question">Завантаження...</div>
-      <div class="test-options" id="options"></div>
-
-      <div class="test-result" id="result">
-        <div class="score" id="score-tag">РЕЗУЛЬТАТ</div>
-        <h3 id="result-title"></h3>
-        <p id="result-desc"></p>
-        <div id="result-steps"></div>
-        <div class="test-result-cta">
-          <a href="#final" class="btn red">Записатися на консультацію →</a>
-          <span class="btn-meta">Безкоштовний 30-хвилинний розбір вашої ситуації</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- === EXPERT === -->
+<!-- === MECHANICS === -->
 <section>
   <div class="wrap">
     <div class="section-intro">
-      <div class="eyebrow">Хто веде?</div>
-      <h2>Спеціаліст з роботи<br>з <em>близькими залежних.</em></h2>
+      <div class="eyebrow gold">— Конкретно. Не «терапія взагалі»</div>
+      <h2>Що ми робитимемо<br>з вами <em>щотижня.</em></h2>
+      <p style="max-width: 600px;">Жодних «давайте поговоримо про дитинство». Робота йде за чітким протоколом, у якому кожен тиждень закриває конкретну задачу.</p>
     </div>
-    <div class="expert">
-      <div class="expert-photo"></div>
-      <div>
-        <h3 style="font-size: clamp(28px, 3vw, 38px); font-style: italic; margin-bottom: 8px;">Тетяна Іванівна Павлусів</h3>
-        <p style="font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">— Лікар-психіатр · Психотерапевт · Нарколог</p>
-        <p>Більше 15 років працює з залежними та їх родинами. Понад 15 000 проведених консультацій. Спеціалізація – ігрова, алкогольна та поведінкова залежність, робота зі співзалежністю у партнерів і батьків.</p>
-        <ul class="expert-credentials">
-          <li>Без осуду і моралізаторства – підхід рівний до рівного</li>
-          <li>На основі доказових методів: КПТ, мотиваційне інтервʼювання, модель Мінесота</li>
-          <li>Абсолютна конфіденційність – без передачі даних, без розсилок</li>
-          <li>Розуміє залежність зсередини: і як лікар, і як терапевт родин</li>
+
+    <div class="mechanics">
+      <div class="mech-week">
+        <div class="mech-week-tag">— Тиждень 01-02</div>
+        <h4>Зупинка зриву</h4>
+        <p style="margin: 0;">Перш ніж щось «лікувати», потрібно зупинити кровотечу. Налаштування фінансової броні (карти, ліміти, доступ), робота з найближчими 14 днями ризику.</p>
+        <ul>
+          <li>Аналіз тригерів останніх 3 зривів</li>
+          <li>План на конкретні дні-ризики</li>
+          <li>Контакти екстреної підтримки 24/7</li>
+        </ul>
+      </div>
+
+      <div class="mech-week">
+        <div class="mech-week-tag">— Тиждень 03-04</div>
+        <h4>Робота з мозком</h4>
+        <p style="margin: 0;">Залежність — це нейрохімічний цикл. Ми працюємо з ним за протоколами КПТ і модифікованої моделі Мінесота — доказових методів, які застосовуються в клініках по всьому світу.</p>
+        <ul>
+          <li>КПТ-протокол на компульсивну поведінку</li>
+          <li>Робота з імпульсивністю і прокрастинацією</li>
+          <li>За потреби — медикаментозна підтримка</li>
+        </ul>
+      </div>
+
+      <div class="mech-week">
+        <div class="mech-week-tag">— Тиждень 05-06</div>
+        <h4>Гроші, борги, родина</h4>
+        <p style="margin: 0;">Робота з реальністю, яку гра після себе залишила. Не «вибачитися перед усіма», а конкретні переговори, графіки виплат, відновлення довіри без приниження.</p>
+        <ul>
+          <li>План реструктуризації боргів</li>
+          <li>Сценарій розмови з рідними</li>
+          <li>За потреби — спільна сесія з партнером</li>
+        </ul>
+      </div>
+
+      <div class="mech-week">
+        <div class="mech-week-tag">— Тиждень 07+</div>
+        <h4>Життя після гри</h4>
+        <p style="margin: 0;">Найскладніше — не кинути, а лишитися кинутим. Заповнення тих годин, які раніше йшли на гру. Реальні джерела дофаміну, які не зруйнують вас вдруге.</p>
+        <ul>
+          <li>Профіль ваших справжніх потреб (не «гри»)</li>
+          <li>Підтримка на 3-6-12 місяців ремісії</li>
+          <li>Повернення до нормального ритму життя</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- === OBJECTIONS === -->
+<section class="alt">
+  <div class="wrap-narrow">
+    <div class="eyebrow">— Те, що ви зараз думаєте</div>
+    <h2>Чотири фрази, які кажуть собі<br><em>усі</em>, хто доходить до цього кроку.</h2>
+    <p style="margin-top: 18px; max-width: 600px;">І чому жодна з них не витримує дотику до реальності.</p>
+
+    <div class="objection">
+      <div class="objection-q">Я сам впораюсь. Просто буду менше грати.</div>
+      <p class="objection-a">Якби це працювало — ви б не читали цю сторінку зараз. Ви вже намагалися. Багато разів. <strong>Це не питання вашої волі — це питання структури мозку, який під час залежності перебудовується фізично.</strong> Самостійно «менше грати» — це як самостійно «менше дихати»: біологія не дає. Потрібен зовнішній протокол, який вмикає роботу префронтальної кори і дає їй час відновитися.</p>
+    </div>
+
+    <div class="objection">
+      <div class="objection-q">Це дорого, а в мене боргів і так купа.</div>
+      <p class="objection-a">Подивіться на цифру, яку ви програли за останній місяць. Програма коштує дрібну частку цієї суми — і зупиняє джерело витрат. <strong>Кожен тиждень без роботи коштує вам у 5-10 разів більше, ніж сама робота.</strong> Це не «витрата» — це закриття дірки, через яку гроші витікають. До того ж є розстрочка, і ми її обговорюємо без зайвих питань.</p>
+    </div>
+
+    <div class="objection">
+      <div class="objection-q">А раптом мене запишуть в нарко-облік?</div>
+      <p class="objection-a">Ні. <strong>Психологічна студія — це не наркологічний диспансер.</strong> Ми приватна практика, працюємо за принципом повної анонімності. Жодних обліків, жодних довідок, жодних повідомлень роботодавцю, поліції, родині. У нас немає «бази», в яку вас можуть записати. У договорі це прописано окремим пунктом.</p>
+    </div>
+
+    <div class="objection">
+      <div class="objection-q">А якщо програма не допоможе?</div>
+      <p class="objection-a">У нас три формати, і перший крок — діагностична сесія. Якщо після неї ми бачимо, що формат вам не підходить — повертаємо повну суму. <strong>87% наших клієнтів досягають стійкого результату.</strong> Це не випадковість і не маркетинг — це наслідок того, що ми працюємо за протоколами, які перевірені на десятках тисяч клінічних випадків.</p>
+    </div>
+  </div>
+</section>
+
+<!-- === QUICK TEST === -->
+<section id="test">
+  <div class="wrap-narrow">
+    <div class="eyebrow">— Перш ніж обирати програму</div>
+    <h2>4 питання,<br>щоб <em>підібрати формат.</em></h2>
+    <p style="margin-top: 20px; max-width: 600px;">Не «діагностика залежності» — її ви собі вже поставили самі тим, що прийшли. Це підбір інтенсивності, яка вам потрібна зараз.</p>
+
+    <div class="qtest" id="qtest">
+      <div class="qtest-progress">Запитання <strong id="q-num">1</strong> з 4</div>
+      <div class="qtest-bar"><div class="qtest-bar-fill" id="bar-fill"></div></div>
+      <div class="qtest-question" id="question">Завантаження...</div>
+      <div class="qtest-options" id="options"></div>
+
+      <div class="qtest-result" id="result">
+        <div class="score-tag" id="score-tag"></div>
+        <h3 id="result-title"></h3>
+        <p id="result-desc"></p>
+        <div id="result-cta" style="margin-top: 32px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === PROGRAMS === -->
+<section class="paper" id="programs">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">— Три формати · Прозора ціна</div>
+      <h2>Оберіть програму<br>і <em>почніть сьогодні.</em></h2>
+      <p style="max-width: 600px;">Ціни фіксовані. Без «від», без «уточнюйте», без додаткових сум по ходу. Все включено у вказану суму. Розстрочка 0% доступна для всіх форматів.</p>
+    </div>
+
+    <div class="programs">
+      <!-- BASIC -->
+      <div class="prog-card">
+        <h3>Старт</h3>
+        <div class="prog-duration">— 4 тижні · діагностика + зупинка</div>
+        <div class="prog-price">
+          <strong>8 400 ₴</strong>
+          <div class="prog-price-meta">Одноразово · або 2× 4 200 ₴</div>
+        </div>
+        <ul>
+          <li>4 індивідуальні сесії з психотерапевтом</li>
+          <li>Особистий план фінансової броні</li>
+          <li>Підтримка у месенджері 5 днів/тиждень</li>
+          <li>Доступ до закритих матеріалів клубу</li>
+          <li>Екстрений контакт у момент тяги</li>
+        </ul>
+        <a href="#checkout" class="btn ghost" style="border: 1px solid var(--ink); color: var(--ink);">Оформити Старт →</a>
+      </div>
+
+      <!-- PROTOCOL -->
+      <div class="prog-card featured">
+        <span class="prog-tag">Обирає 8 з 10</span>
+        <h3>Протокол 21</h3>
+        <div class="prog-duration">— 8 тижнів · повний протокол</div>
+        <div class="prog-price">
+          <strong>17 800 ₴</strong>
+          <div class="prog-price-meta">Або 3× 5 933 ₴ розстрочкою</div>
+        </div>
+        <ul>
+          <li>10 індивідуальних сесій із Тетяною Павлусів</li>
+          <li>Повний протокол КПТ + Мінесота</li>
+          <li>Медикаментозна підтримка (за потреби)</li>
+          <li>Робота з боргами і фінансами</li>
+          <li>Сесія для партнера / батьків</li>
+          <li>Підтримка у месенджері 7 днів/тиждень</li>
+          <li>3 місяці супроводу після завершення</li>
+        </ul>
+        <a href="#checkout" class="btn">Оформити Протокол →</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="prog-card">
+        <h3>Приват</h3>
+        <div class="prog-duration">— 12 тижнів · максимум</div>
+        <div class="prog-price">
+          <strong>34 600 ₴</strong>
+          <div class="prog-price-meta">Або 4× 8 650 ₴ розстрочкою</div>
+        </div>
+        <ul>
+          <li>16 індивідуальних сесій</li>
+          <li>Повний протокол + поглиблена робота</li>
+          <li>Особистий куратор 24/7</li>
+          <li>Підготовка персонального плану до 6 міс.</li>
+          <li>3 спільні сесії з родиною</li>
+          <li>Робота з юристом по боргах (1 сесія)</li>
+          <li>12 місяців супроводу після завершення</li>
+        </ul>
+        <a href="#checkout" class="btn ghost" style="border: 1px solid var(--ink); color: var(--ink);">Оформити Приват →</a>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <div class="guarantee-mark">✓</div>
+      <div>
+        <h4>Гарантія першої сесії</h4>
+        <p>Якщо після першої сесії ви розумієте, що формат вам не підходить — повертаємо повну суму впродовж 3 робочих днів. Без питань, без анкет, без «давайте обговоримо».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === SOCIAL PROOF === -->
+<section>
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">— Реальні випадки</div>
+      <h2>Те, що пишуть<br><em>після</em> програми.</h2>
+      <p style="max-width: 580px;">Фрагменти з листів клієнтів. Імена та деталі змінено. Кожен з цих людей сидів у вашій точці — деякі рік тому, деякі п'ять.</p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="proof-quote">Програв 280 тисяч за три місяці. Думав вийти у вікно. Дружина знайшла Тетяну. Перші два тижні було важко — особливо коли вона забрала картки. Зараз — 7 місяців без жодної ставки. І це не «терпіння», це інше відчуття. Бажання просто нема.</p>
+        <div class="proof-author">М., 34 · Київ · IT-керівник</div>
+        <div class="proof-result">7 місяців ремісії, борг закритий</div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">Я не вірив, що це робиться так швидко. На 3-му тижні зрозумів, що вперше за рік не думаю про додаток ставок з ранку. Раніше це була перша думка після пробудження. Зараз — не остання, а ніяка.</p>
+        <div class="proof-author">О., 29 · Львів · підприємець</div>
+        <div class="proof-result">5 місяців ремісії, повернувся до бізнесу</div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">Найдивніше — це коли перестаєш ховатися. Я три роки жив паралельним життям: одне для родини, друге з казино. Зараз життя одне. І воно дешевше. І набагато спокійніше.</p>
+        <div class="proof-author">В., 41 · Дніпро · топ-менеджер</div>
+        <div class="proof-result">11 місяців ремісії, відновив стосунки</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === URGENCY === -->
+<section class="urgency">
+  <div class="wrap-narrow">
+    <div class="eyebrow gold">— Чому важливо зараз</div>
+    <h2>Вікно мотивації<br>зачиняється <em>за 48-72 години.</em></h2>
+    <p style="font-size: clamp(18px, 1.6vw, 21px); margin: 30px auto 0; max-width: 580px;">Ви це знаєте. Сьогодні ви готові щось зробити. Завтра скажете собі «зачекаю до зарплати». Через тиждень — «у мене все під контролем». Через місяць — новий зрив, новий борг, нова обіцянка «востаннє».</p>
+    <p style="font-size: clamp(18px, 1.6vw, 21px); margin: 20px auto 40px; max-width: 580px;">У роботі з залежністю <strong>швидкість першого кроку має значення</strong>. Не тому, що ми тиснемо. А тому, що ваш мозок прямо зараз дав вам коротке вікно ясності. Скористайтесь ним.</p>
+    <a href="#programs" class="btn" style="background: var(--gold); border-color: var(--gold); color: var(--ink);">Перейти до програм →</a>
+  </div>
+</section>
+
 <!-- === FAQ === -->
 <section class="alt">
   <div class="wrap-narrow">
-    <div class="eyebrow">Що вас зупиняє?</div>
-    <h2>Питання, які ви боїтеся<br><em>навіть собі</em> поставити.</h2>
+    <div class="eyebrow">— Питання, які зазвичай зупиняють</div>
+    <h2>Решта <em>деталей.</em></h2>
 
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">А якщо він дізнається, що я зверталась?<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Все анонімно. Ми не телефонуємо, не пишемо в месенджери без вашого запиту. У базах не значиться нічого, що могло б його повідомити. Це принцип роботи всієї студії, не лише з вами.</p></div>
+        <div class="faq-q">Як влаштована оплата і чи можна розстрочкою?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Оплата відбувається банківською карткою через захищений шлюз — Visa, Mastercard, ПриватБанк, Monobank. Розстрочка 0% доступна на всі програми: 2 платежі для Старту, 3 для Протоколу, 4 для Привату. Розстрочка оформлюється прямо на сторінці оплати, без додаткових документів і дзвінків у банк.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Я не зможу привести його на діагностику.<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>І не треба. Робота починається з вас. Він приєднається, коли буде готовий – або не приєднається. У будь-якому випадку ви отримаєте свою опору, і це вже змінить динаміку в парі.</p></div>
+        <div class="faq-q">Чи буде десь зафіксовано, що я звертався?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>У жодному державному реєстрі — ні. Ми приватна психологічна студія, не наркологічний диспансер. Ваші дані зберігаються тільки в нашій внутрішній системі і не передаються нікому: ні роботодавцю, ні банку, ні поліції, ні родині. У договорі це прописано окремим пунктом про конфіденційність із юридичною відповідальністю студії.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">У мене немає грошей на платні консультації.<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Діагностика повністю безкоштовна. Перший 30-хвилинний розбір ситуації – теж. Подальші кроки обговорюємо індивідуально, є розстрочка і доступні формати. Гроші ніколи не є причиною не звернутися.</p></div>
+        <div class="faq-q">Як проходять сесії — онлайн чи очно?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Обидва варіанти. Більшість клієнтів обирає онлайн (Zoom, Google Meet) — це зручно, не треба нікуди їхати, повна приватність. Очно можна у Львові, в кабінеті студії. Час сесій підбираємо під ваш графік, у тому числі ранок (до 8:00) і пізній вечір (після 21:00) — для тих, хто не хоче брати години з робочого дня.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Я вже все пробувала. Нічого не допомогло.<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Те, що ви пробували, — це інструменти для не-залежного. Розмови, прохання, ультиматуми. З залежністю працюють зовсім інші інструменти – саме їх ми і даємо. Це конкретні навички, не «спробуйте ще раз».</p></div>
+        <div class="faq-q">Що буде, якщо я зірвусь під час програми?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Це не катастрофа. Зриви бувають у 30-40% клієнтів на ранніх етапах — це нормальна частина процесу одужання, а не його провал. У програмі є окремий протокол на цей випадок: ми не зупиняємо роботу, не «починаємо спочатку», а використовуємо ситуацію як матеріал для подальшої роботи. Найгірше, що ви можете зробити після зриву — це сховатися. Найкраще — написати кураторові того ж дня.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Це не «секта», не релігія, не езотерика?<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Ні. Робота побудована на доказових підходах: когнітивно-поведінкова терапія, мотиваційне інтервʼювання, модель Мінесота, програма для родин Al-Anon як одна з опцій. Все має наукове обґрунтування і застосовується в клінічних протоколах по всьому світу.</p></div>
+        <div class="faq-q">Чи може дізнатися дружина / батьки / роботодавець?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Тільки якщо ви самі їм скажете. Ми не маємо зв'язку ні з ким, окрім вас особисто. Виставлені рахунки за програму надсилаються на вашу електронну пошту з нейтральною назвою послуги — «консультаційні послуги», без згадки залежності.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">А якщо він мене за це покине?<span class="faq-toggle">+</span></div>
-        <div class="faq-a"><p>Один із найчастіших страхів. Реальна статистика: коли близький виходить зі співзалежної ролі, у 6 з 10 випадків залежний стикається з реальністю і починає лікуватися. У 2 з 10 – пара переживає тимчасову кризу і виходить сильнішою. У решті випадків ваше рішення зберегти себе виявляється правильним для обох.</p></div>
+        <div class="faq-q">Чим програма відрізняється від «Анонімних гравців»?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>АГ — це група самодопомоги, безкоштовна, без професійного супроводу. Працює для частини людей як підтримка. Ми — це індивідуальна психотерапія з лікарем-психіатром, з протоколами доказової медицини, з можливістю медикаментозної підтримки, з роботою з родиною і боргами. Це не «замість», а зовсім інший інструмент. Багато наших клієнтів паралельно ходять на АГ — це нормально.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">А якщо я зрозумію, що це не для мене?<span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Після першої сесії — повне повернення коштів впродовж 3 робочих днів. Без анкет, без «давайте поговоримо», без переконувань. Просто пишете кураторові, і ми повертаємо гроші на ту ж карту, з якої прийшла оплата. Це принцип, не «жест доброї волі».</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- === FINAL CTA === -->
-<section class="final-cta" id="final">
+<section class="final-cta" id="checkout">
   <div class="wrap-narrow">
-    <div class="eyebrow ink">Перший крок</div>
-    <h2>Ви не врятуєте його,<br>поки не <em>відновите себе.</em></h2>
-    <p style="max-width: 540px; margin: 0 auto 50px;">Почніть з діагностики. Це безкоштовно, анонімно, займає 5 хвилин і дає чітку картину того, де ви зараз і що робити далі.</p>
-    <a href="#test" class="btn red">Пройти діагностику →</a>
-    <span class="btn-meta" style="text-align: center;">Анонімно · Без реєстрації · Без розсилки</span>
+    <div class="eyebrow ink">— Перший крок</div>
+    <h2>Натисніть кнопку.<br>Через 5 хвилин у вас буде<br><em>план</em>, а не питання.</h2>
+    <p style="max-width: 540px; margin: 0 auto 50px; font-size: clamp(18px, 1.5vw, 21px);">Після оплати ви отримаєте лист із посиланням на запис у календарі. Перша сесія — в найближчі 24-48 годин. Жодних додаткових анкет, жодних «передзвонимо завтра».</p>
+    <a href="https://wa.me/380938763316?text=Готовий%20почати%20програму" class="btn red large">Оформити програму зараз →</a>
+    <span class="btn-meta" style="text-align: center;">Захищений платіж · Гарантія повернення · Розстрочка 0%</span>
   </div>
 </section>
 
@@ -1014,7 +1097,7 @@ footer.site a:hover { border-bottom-color: var(--gold); }
     <p>© 2026 Психологічна студія Взаємодія · Private Recovery Club</p>
     <div style="display: flex; gap: 24px;">
       <a href="/publichnyi-dohovir-oferta/">Оферта</a>
-      <a href="/pravyla-ta-umovy/">Правила</a>
+      <a href="/pravyla-ta-umovy/">Конфіденційність</a>
       <a href="https://t.me/Nomer_vzaemodii">Telegram</a>
     </div>
   </div>
@@ -1028,101 +1111,55 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// === DIAGNOSTIC TEST ===
+// === 4-QUESTION FORMAT SELECTOR ===
 const questions = [
-  // Про нього (6)
-  { q: "Чи бере ваш близький гроші в борг для гри / ставок?", opts: [
-    { t: "Ніколи", v: 0 },
-    { t: "Один-два рази було", v: 1 },
-    { t: "Регулярно", v: 2 },
-    { t: "Не уявляю іншого джерела", v: 3 },
-  ]},
-  { q: "Чи приховує він від вас суми, які витрачає?", opts: [
-    { t: "Все відкрито", v: 0 },
-    { t: "Іноді применшує", v: 1 },
-    { t: "Часто бреше про суми", v: 2 },
-    { t: "Я давно не вірю його цифрам", v: 3 },
-  ]},
-  { q: "Чи обіцяв він «востаннє» / «більше не буду»?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Один раз", v: 1 },
-    { t: "Кілька разів", v: 2 },
-    { t: "Втратила лік", v: 3 },
-  ]},
-  { q: "Чи постраждали через це робота, навчання, бізнес?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Є попередження", v: 1 },
-    { t: "Втратив роботу одного разу", v: 2 },
-    { t: "Постійні проблеми", v: 3 },
-  ]},
-  { q: "Чи зʼявилися борги, кредити, ломбарди, продані речі?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Невеликі суми", v: 1 },
-    { t: "Кілька кредитів", v: 2 },
-    { t: "Глибока боргова яма", v: 3 },
-  ]},
-  { q: "Чи реагує він на спроби говорити про проблему?", opts: [
-    { t: "Спокійно обговорюємо", v: 0 },
-    { t: "Заперечує, але слухає", v: 1 },
-    { t: "Злість, агресія, мовчання", v: 2 },
-    { t: "Стало небезпечно поднімати тему", v: 3 },
-  ]},
-  // Про вас (6)
-  { q: "Чи перевіряєте ви його телефон, картку, виписки?", opts: [
-    { t: "Ніколи", v: 0 },
-    { t: "Зрідка", v: 1 },
-    { t: "Регулярно", v: 2 },
-    { t: "Щодня, не можу інакше", v: 3 },
-  ]},
-  { q: "Як змінився ваш сон за останній рік?", opts: [
-    { t: "Без змін", v: 0 },
-    { t: "Іноді важко заснути", v: 1 },
-    { t: "Прокидаюся, тривога", v: 2 },
-    { t: "Сну майже немає", v: 3 },
-  ]},
-  { q: "Чи приховуєте ви ситуацію від батьків, друзів, дітей?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Деякі деталі", v: 1 },
-    { t: "Більшість", v: 2 },
-    { t: "Все. Я живу подвійним життям", v: 3 },
-  ]},
-  { q: "Чи покривали ви його перед роботою, родиною, банком?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Один раз", v: 1 },
-    { t: "Кілька разів", v: 2 },
-    { t: "Постійно прикриваю", v: 3 },
-  ]},
-  { q: "Як ви почуваєтесь по життю в цілому?", opts: [
-    { t: "У формі", v: 0 },
-    { t: "Втомлено, але тримаюсь", v: 1 },
-    { t: "Виснажена, без сил", v: 2 },
-    { t: "На межі", v: 3 },
-  ]},
-  { q: "Чи думали ви про те, щоб піти від нього?", opts: [
-    { t: "Ні", v: 0 },
-    { t: "Іноді", v: 1 },
-    { t: "Часто", v: 2 },
-    { t: "Думаю про це щодня", v: 3 },
-  ]},
+  {
+    q: "Як давно гра займає значну частину вашого життя?",
+    opts: [
+      { t: "Менше року", v: 1 },
+      { t: "1-3 роки", v: 2 },
+      { t: "Більше 3 років", v: 3 },
+    ]
+  },
+  {
+    q: "Який ваш рівень фінансових втрат / боргів від гри?",
+    opts: [
+      { t: "До 50 000 ₴ — контрольовано", v: 1 },
+      { t: "50 000 – 500 000 ₴ — серйозно", v: 2 },
+      { t: "Більше 500 000 ₴ або кредити", v: 3 },
+    ]
+  },
+  {
+    q: "Чи були спроби зупинитися самостійно?",
+    opts: [
+      { t: "Ще не пробував — це перша спроба", v: 1 },
+      { t: "Пробував 1-2 рази, не вийшло", v: 2 },
+      { t: "Багато разів, всі зривалися", v: 3 },
+    ]
+  },
+  {
+    q: "Наскільки сильно це впливає на роботу і близьких?",
+    opts: [
+      { t: "Поки що мало хто знає", v: 1 },
+      { t: "Конфлікти, але працюю", v: 2 },
+      { t: "Криза в усьому одночасно", v: 3 },
+    ]
+  },
 ];
 
 let current = 0;
 let score = 0;
 
 function renderQuestion() {
-  const c = document.getElementById('test-card');
-  if (current >= questions.length) {
-    showResult();
-    return;
-  }
+  if (current >= questions.length) { showResult(); return; }
   document.getElementById('q-num').textContent = current + 1;
-  document.getElementById('bar-fill').style.width = ((current) / questions.length * 100) + '%';
+  document.getElementById('bar-fill').style.width = (current / questions.length * 100) + '%';
   document.getElementById('question').textContent = questions[current].q;
   const optsEl = document.getElementById('options');
   optsEl.innerHTML = '';
   questions[current].opts.forEach(opt => {
     const b = document.createElement('button');
-    b.className = 'test-option';
+    b.className = 'qtest-option';
     b.textContent = opt.t;
     b.addEventListener('click', () => {
       score += opt.v;
@@ -1135,66 +1172,42 @@ function renderQuestion() {
 
 function showResult() {
   document.getElementById('bar-fill').style.width = '100%';
-  document.getElementById('q-num').textContent = 12;
+  document.getElementById('q-num').textContent = '4';
   document.getElementById('question').style.display = 'none';
   document.getElementById('options').style.display = 'none';
-  document.querySelector('.test-progress').style.display = 'none';
-  document.querySelector('.test-bar').style.display = 'none';
+  document.querySelector('.qtest-progress').style.display = 'none';
+  document.querySelector('.qtest-bar').style.display = 'none';
 
   const res = document.getElementById('result');
   const tag = document.getElementById('score-tag');
   const title = document.getElementById('result-title');
   const desc = document.getElementById('result-desc');
-  const steps = document.getElementById('result-steps');
+  const cta = document.getElementById('result-cta');
 
-  let tagText, tagClass, titleText, descText, stepsText;
+  let tagText, titleText, descText, recommended;
 
-  if (score <= 10) {
-    tagText = "Низький рівень · моніторинг";
-    tagClass = "low";
-    titleText = "Ситуація поки що під контролем – але ви не випадково тут.";
-    descText = "Те, що ви проходите цей тест, означає: щось всередині вас бʼє на сполох. Не ігноруйте цей сигнал. На цій стадії робота – це профілактика, і вона економить роки болю.";
-    stepsText = `
-      <p><strong>Три кроки на найближчий тиждень:</strong></p>
-      <ol style="padding-left: 24px; margin-top: 12px;">
-        <li style="margin-bottom: 12px;">Запишіть факти, не інтерпретації. Скільки разів, скільки грошей, які реакції.</li>
-        <li style="margin-bottom: 12px;">Перестаньте прикривати – навіть в дрібницях. Кожне прикриття подовжує проблему.</li>
-        <li>Прийдіть на безкоштовний 30-хвилинний розбір. Поки ситуація легка — її легко завернути.</li>
-      </ol>
-    `;
-  } else if (score <= 22) {
-    tagText = "Середній рівень · активна стадія";
-    tagClass = "mid";
-    titleText = "Це вже не епізоди. Це система, в якій ви живете щодня.";
-    descText = "За вашими відповідями видно: ви роками тримаєте на собі чужу залежність. Ви не виснажуєтесь — ви вже виснажена. Те, що ви ще функціонуєте, говорить про вашу силу, а не про те, що «все нормально».";
-    stepsText = `
-      <p><strong>Три кроки на найближчий тиждень:</strong></p>
-      <ol style="padding-left: 24px; margin-top: 12px;">
-        <li style="margin-bottom: 12px;">Зупиніть фінансове прикриття. Це найважливіший крок і "найстрашніший".</li>
-        <li style="margin-bottom: 12px;">Знайдіть одну людину поза сімʼєю, з якою можна говорити чесно. Самостійно цю вагу не несуть.</li>
-        <li>Запишіться на консультацію в найближчі 7 днів. На цій стадії час працює проти вас.</li>
-      </ol>
-    `;
+  if (score <= 5) {
+    tagText = "Рекомендований формат: СТАРТ";
+    titleText = "Раннє звернення — найкращий сценарій з можливих.";
+    descText = "За вашими відповідями: ситуація серйозна, але ще не критична. Це найкращий момент для роботи — програма Старт (4 тижні) повністю покриває ваш кейс і коштує найменше з трьох. Більшість людей у вашій точці витягуються за 4-6 тижнів і повертаються до нормального життя без потреби в довгих протоколах.";
+    recommended = "start";
+  } else if (score <= 8) {
+    tagText = "Рекомендований формат: ПРОТОКОЛ 21";
+    titleText = "Активна стадія — потрібна повноцінна робота.";
+    descText = "За відповідями видно: гра вже міцно вписалася в життя, самостійні спроби не дають результату, є фінансові і сімейні наслідки. Це класичний кейс для Протоколу 21 — повного 8-тижневого циклу з усіма інструментами: КПТ, робота з родиною, фінансовий план. Цей формат обирає 8 з 10 наших клієнтів, і саме він дає 87% стійкого результату.";
+    recommended = "protocol";
   } else {
-    tagText = "Високий рівень · потрібна допомога";
-    tagClass = "high";
-    titleText = "Ви тримаєтесь на межі. І ви це знаєте.";
-    descText = "Ваші відповіді показують глибоку співзалежність і виражене виснаження. Це не катастрофа — це стан, з якого є вихід, але самостійно з нього не виходять. Не тому, що ви слабка, а тому, що в цьому стані не видно ні дверей, ні дороги.";
-    stepsText = `
-      <p><strong>Що зробити сьогодні:</strong></p>
-      <ol style="padding-left: 24px; margin-top: 12px;">
-        <li style="margin-bottom: 12px;">Не приймайте серйозних рішень (піти / залишитись / виплатити борг) поодинці. Дайте собі тиждень.</li>
-        <li style="margin-bottom: 12px;">Запишіться на безкоштовний розбір ситуації — це не «терапія», це аудит, де ви.</li>
-        <li>Памʼятайте: ви не зобовʼязана його витягувати. Спершу — кисневу маску на себе.</li>
-      </ol>
-    `;
+    tagText = "Рекомендований формат: ПРИВАТ";
+    titleText = "Важка стадія — самостійно не вийти.";
+    descText = "За відповідями: тривала залежність, серйозні фінансові і соціальні наслідки, неодноразові зриви. У вашому випадку 4 або 8 тижнів буде замало — потрібен повноцінний 12-тижневий супровід із персональним куратором 24/7, медикаментозною підтримкою і поглибленою роботою з родиною і боргами. Це програма Приват — найдорожча, але саме той інструмент, який вам зараз потрібен.";
+    recommended = "priv";
   }
 
   tag.textContent = tagText;
-  tag.className = "score " + tagClass;
   title.textContent = titleText;
   desc.textContent = descText;
-  steps.innerHTML = stepsText;
+  cta.innerHTML = `<a href="#programs" class="btn red">Подивитися рекомендовану програму →</a>
+    <span class="btn-meta" style="text-align: left;">Або обрати інший формат вручну</span>`;
   res.classList.add('active');
 }
 
